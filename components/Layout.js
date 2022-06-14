@@ -1,60 +1,158 @@
-import { Fragment, useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
+import { useSession, signOut } from 'next-auth/react';
+import { Menu } from '@headlessui/react';
+import {
+  CollectionIcon,
+  ClipboardListIcon,
+  LogoutIcon,
+  PlusIcon,
+  UserIcon,
+} from '@heroicons/react/outline';
+import { ChevronDownIcon } from '@heroicons/react/solid';
 
+
+const menuItems = [
+  {
+    label: 'Post An Item',
+    icon: PlusIcon,
+    href: '/item-listing',
+  },
+  // {
+  //   label: 'Post A Notice',
+  //   icon: PlusIcon,
+  //   href: '/notice-listing',
+  // },
+  {
+    label: 'My Posted Items',
+    icon: CollectionIcon,
+    href: '/items',
+  },
+  // {
+  //   label: 'My Posted Notices',
+  //   icon: ClipboardListIcon,
+  //   href: '/notices',
+  // },
+  {
+    label: 'Sign out',
+    icon: LogoutIcon,
+    onClick: signOut,
+  },
+];
 
 const Layout = ({ children }) => {
-    return (
-      <>
-        <Head>
-          <title>FindMyItem</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-  
-        <div className="min-h-screen flex flex-col">
-          <header className="h-16 w-full shadow-md">
-            <div className="h-full container mx-auto">
-              <div className="h-full px-4 flex justify-between items-center space-x-4">
-                <Link href="/">
-                  <a className="flex items-center space-x-1">
-                    <span className="text-xl font-semibold tracking-wide">
-                      FindMyItem
-                    </span>
-                  </a>
-                </Link>
-                <div className="flex items-center space-x-4">
-                  <Link href="/item-creation">
-                    <a className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md">
-                      Post an item
-                    </a>
-                  </Link>
-                  <Link href="/notice-creation">
-                    <a className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md">
-                      Post a notice
-                    </a>
-                  </Link>
-                  <Link href="/login">
-                    <a className="ml-4 px-4 py-1 rounded-md bg-rose-600 hover:bg-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500 focus:ring-opacity-50 text-white transition">
-                      Log in
-                    </a> 
-                  </Link>
 
-                </div>
+  const { data: session, status } = useSession();
+  const user = session?.user;
+  const isLoadingUser = status === 'loading';
+  const router = useRouter();
+
+  return (
+    <>
+      <Head>
+        <title>FindMyItem</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className="min-h-screen flex flex-col">
+        <header className="h-16 w-full shadow-md">
+          <div className="h-full container mx-auto">
+            <div className="h-full px-4 flex justify-between items-center space-x-4">
+              <Link href="/">
+                <a className="flex items-center space-x-1">
+                  <span className="text-xl font-semibold tracking-wide">
+                    FindMyItem
+                  </span>
+                </a>
+              </Link>
+              <div className="flex items-center space-x-4">
+                {/* <Link href="/item-listing">
+                  <a className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md">
+                    Post an item
+                  </a>
+                </Link> */}
+                <button
+                  onClick={() => {
+                    if (session?.user) {
+                      router.push('/item-listing');
+                    } else {
+                      router.push('/login')
+                    }
+                  }}
+                  className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md">
+                  Post an item
+                </button>
+
+                {isLoadingUser ? (
+                    <div className="h-8 w-[75px] bg-gray-200 animate-pulse rounded-md" />
+                  ) : user ? (
+                    <Menu as="div" className="relative z-50">
+                      <Menu.Button className="flex items-center space-x-px group">
+                        <div className="shrink-0 flex items-center justify-center rounded-full overflow-hidden relative bg-gray-200 w-9 h-9">
+                            <UserIcon className="text-gray-400 w-6 h-6" />
+                        </div>
+                        <ChevronDownIcon className="w-5 h-5 shrink-0 text-gray-500 group-hover:text-current" />
+                      </Menu.Button>
+                      <Menu.Items className="absolute right-0 w-72 overflow-hidden mt-1 divide-y divide-gray-100 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="flex flex-col py-2 px-4 truncate ml-3 rounded-full overflow-hidden relative shrink-0">
+                            <span className="text-sm text-gray-500">
+                              {"Signed in as: " + user?.email}
+                            </span>
+                        </div>
+
+                        <div className="py-2">
+                          {menuItems.map(
+                            ({ label, href, onClick, icon: Icon }) => (
+                              <div
+                                key={label}
+                                className="px-2 last:border-t last:pt-2 last:mt-2"
+                              >
+                                <Menu.Item>
+                                  {href ? (
+                                    <Link href={href}>
+                                      <a className="flex items-center space-x-2 py-2 px-4 rounded-md hover:bg-gray-100">
+                                        <Icon className="w-5 h-5 shrink-0 text-gray-500" />
+                                        <span>{label}</span>
+                                      </a>
+                                    </Link>
+                                  ) : (
+                                    <button
+                                      className="w-full flex items-center space-x-2 py-2 px-4 rounded-md hover:bg-gray-100"
+                                      onClick={onClick}
+                                    >
+                                      <Icon className="w-5 h-5 shrink-0 text-gray-500" />
+                                      <span>{label}</span>
+                                    </button>
+                                  )}
+                                </Menu.Item>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </Menu.Items>
+                    </Menu>
+                  ) : (
+                    <Link href="/login">
+                      <a className="ml-4 px-4 py-1 rounded-md bg-rose-600 hover:bg-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500 focus:ring-opacity-50 text-white transition">
+                        Log in
+                      </a> 
+                    </Link>
+              )}
               </div>
             </div>
-          </header>
+          </div>
+        </header>
 
-          <main className="flex-grow container mx-auto">
-            <div className="px-4 py-12">
-              {children}
-            </div>
-          </main>
-        </div>
-      </>
-    );
+        <main className="flex-grow container mx-auto">
+          <div className="px-4 py-12">
+            {children}
+          </div>
+        </main>
+      </div>
+    </>
+  );
 };
 
 Layout.propTypes = {
