@@ -1,0 +1,65 @@
+[
+    {
+        "id": "001",
+        "image": "/Items/wallet.jpg",
+        "title": "Black wallet",
+        "description": "Black leather wallet",
+        "location": "Tembusu",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    },
+    {
+        "id": "002",
+        "image": "/Items/bag.jpeg",
+        "title": "Green Crumpler bag",
+        "description": "Green bag with wallet, notes and iphone inside",
+        "location": "Central library",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    },
+    {
+        "id": "003",
+        "image": "/Items/wallet.jpg",
+        "title": "Black wallet",
+        "description": "Black leather wallet",
+        "location": "Tembusu",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    },
+    {
+        "id": "004",
+        "image": "/Items/wallet.jpg",
+        "title": "Black wallet",
+        "description": "Black leather wallet",
+        "location": "Tembusu",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    },
+    {
+        "id": "005",
+        "image": "/Items/wallet.jpg",
+        "title": "Black wallet",
+        "description": "Black leather wallet",
+        "location": "Tembusu",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    },
+    {
+        "id": "001",
+        "image": "/Items/wallet.jpg",
+        "title": "Black wallet",
+        "description": "Black leather wallet",
+        "location": "Tembusu",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    },
+    {
+        "id": "006",
+        "image": "/Items/wallet.jpg",
+        "title": "Black wallet",
+        "description": "Black leather wallet",
+        "location": "Tembusu",
+        "createdAt": "2011-10-05T14:48:00.000Z",
+        "updatedAt": "2012-10-05T14:48:00.000Z" 
+    }
+]
