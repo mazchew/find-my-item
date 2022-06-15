@@ -36,7 +36,7 @@ const menuItems = [
   //   href: '/notices',
   // },
   {
-    label: 'Sign out',
+    label: 'Sign Out',
     icon: LogoutIcon,
     onClick: signOut,
   },
@@ -134,9 +134,9 @@ const Layout = ({ children }) => {
                       </Menu.Items>
                     </Menu>
                   ) : (
-                    <Link href="/login">
+                    <Link href="/signin">
                       <a className="ml-4 px-4 py-1 rounded-md bg-rose-600 hover:bg-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500 focus:ring-opacity-50 text-white transition">
-                        Log in
+                        Sign In
                       </a> 
                     </Link>
               )}
