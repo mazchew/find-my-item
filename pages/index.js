@@ -27,7 +27,7 @@ export default function Home() {
         <p className="text-gray-500">Check out all found items</p>
       </div>
       <div className="mt-8">
-        <Grid items={data} />
+        <Grid items={items} />
       </div>
     </Layout>
   );
