@@ -11,6 +11,7 @@ const ImageUpload = ({
     sizeLimit = 5000000,
 }) => {
 
+    const imageRef = useRef();
     const [image, setImage] = useState(null);
 
 
@@ -30,15 +31,16 @@ const ImageUpload = ({
                 <div>
                     {!image?.src ? (
                         <div>
-                            <div>
-                                <ArrowUpIcon className="h-4 w-4 transition"/>
-                            </div>
+                            <ArrowUpIcon className="h-4 w-4 transition"/>
                             <span className="text-gray-500 transition">Upload</span>
                         </div>
                     ) : null}
-
+                    <input
+                        ref={imageRef}
+                        type="file"
+                        accept={accept}
+                    />
                 </div>   
-
             </button>
         </div>
     );
