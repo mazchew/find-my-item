@@ -1,6 +1,5 @@
 import Layout from "@/components/Layout";
 import Grid from "@/components/Grid";
-import data from "../data.json";
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient()
@@ -15,7 +14,6 @@ export async function getServerSideProps() {
       items: JSON.parse(JSON.stringify(items))
     },
   };
-
 
 }
 
