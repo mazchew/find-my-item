@@ -6,14 +6,19 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Formik, Form } from "formik";
 
-const ItemSchema = Yup.object.shape({});
+const ItemSchema = Yup.object.shape({
+  title: Yup.string().trim().required(),
+  location: Yup.string().trim().required(),
+  description: Yup.string().trim().required(),
+  categories: Yup.string().required(),
+});
 
 const ItemForm = () => {
   const initialItemValues = {
     title: "",
     location: "",
     description: "",
-    categories: [],
+    categories: "",
   };
 
   return (
