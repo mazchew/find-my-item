@@ -7,6 +7,15 @@ const prisma = new PrismaClient()
 
 // get data from database instead of json file
 export async function getServerSideProps() {
+  // get items
+  const items = await prisma.item.findMany();
+
+  return {
+    props: {
+      items: JSON.parse(JSON.stringify(items))
+    },
+  };
+
 
 }
 
