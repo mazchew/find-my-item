@@ -19,7 +19,7 @@ export async function getServerSideProps() {
 
 }
 
-export default function Home() {
+export default function Home({ items = [] }) {
   return (
     <Layout>
       <div>
