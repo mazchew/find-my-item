@@ -2,6 +2,11 @@ import Layout from "@/components/Layout";
 import Grid from "@/components/Grid";
 import data from "../data.json";
 
+// get data from database instead of json file
+export async function getServerSideProps() {
+
+}
+
 export default function Home() {
   return (
     <Layout>
