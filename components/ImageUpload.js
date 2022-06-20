@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { ArrowUpIcon } from '@heroicons/react/outline';
 
 
 const ImageUpload = ({
@@ -27,7 +28,15 @@ const ImageUpload = ({
                 ) : null}
 
                 <div>
-                    
+                    {!image?.src ? (
+                        <div>
+                            <div>
+                                <ArrowUpIcon className="h-4 w-4 transition"/>
+                            </div>
+                            <span className="text-gray-500 transition">Upload</span>
+                        </div>
+                    ) : null}
+
                 </div>   
 
             </button>
