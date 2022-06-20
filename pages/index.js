@@ -1,8 +1,23 @@
 import Layout from "@/components/Layout";
 import Grid from "@/components/Grid";
-import data from "../data.json";
+import { PrismaClient } from '@prisma/client';
 
-export default function Home() {
+const prisma = new PrismaClient()
+
+// get data from database instead of json file
+export async function getServerSideProps() {
+  // get items
+  const items = await prisma.item.findMany();
+
+  return {
+    props: {
+      items: JSON.parse(JSON.stringify(items))
+    },
+  };
+
+}
+
+export default function Home({ items = [] }) {
   return (
     <Layout>
       <div>
@@ -10,7 +25,7 @@ export default function Home() {
         <p className="text-gray-500">Check out all found items</p>
       </div>
       <div className="mt-8">
-        <Grid items={data} />
+        <Grid items={items} />
       </div>
     </Layout>
   );
