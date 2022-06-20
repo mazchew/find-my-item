@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import { ArrowUpIcon } from '@heroicons/react/outline';
-import toast from 'react-hot-toast';
 
 
 const ImageUpload = ({
-    label = "Image",
-    initialImage = null,
     objectFit = "cover",
     accept = ".png, .jpg, .jpeg,",
     sizeLimit = 5000000,
@@ -59,7 +56,7 @@ const ImageUpload = ({
 
 
     return (
-        <div>
+        <div className="flex flex-col space-y-2">
             <label className="text-gray-600">Image</label>
             <button 
                 onClick={handleOnClickImage}
@@ -70,14 +67,14 @@ const ImageUpload = ({
                     src={image.src}
                     alt={image?.alt ?? ""}
                     layout="fill"
-                    objectFit="cover"
+                    objectFit={objectFit}
                     />
                 ) : null}
 
-                <div>
+                <div className="flex items-center justify-center">
                     {!image?.src ? (
                         <div>
-                            <ArrowUpIcon className="h-4 w-4 transition"/>
+                            <ArrowUpIcon className="h-4 w-4 text-gray-500 transition"/>
                             <span className="text-gray-500 transition">Upload</span>
                         </div>
                     ) : null}
@@ -94,7 +91,6 @@ const ImageUpload = ({
         </div>
     );
 };
-
 
 
 
