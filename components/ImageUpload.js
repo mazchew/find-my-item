@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import toast from 'react-hot-toast';
 import { ArrowUpIcon } from '@heroicons/react/outline';
 import toast from 'react-hot-toast';
 
@@ -14,9 +15,10 @@ const ImageUpload = ({
 
     const imageRef = useRef();
     const [image, setImage] = useState(null);
-    const [updatingImage, setUpdatingImage] = useState(false)
+    const [updatingImage, setUpdatingImage] = useState(false);
+    const [imageError, setImageError] = useState(null);
 
-    const handleChangePicture = e => {
+    const handleChangeImage = e => {
         const file = e.target.files[0];
         const reader = new FileReader();
 
@@ -32,12 +34,21 @@ const ImageUpload = ({
             } catch (error) {
                 toast.error('Unable to update image')
             } finally {
-                setUpdatingImage(false)
+                setUpdatingImage(false);
             }
         },
         false
         );
 
+        if (file) {
+            if (file.size <= sizeLimit) {
+                setUpdatingImage(true);
+                setPictureError("");
+                reader.readAsDataURL(file);
+            } else {
+                setImageError("File size is over the 5MB limit.");
+            }
+        }
     };
 
     const handleOnClickImage = () => {
@@ -74,9 +85,12 @@ const ImageUpload = ({
                         ref={imageRef}
                         type="file"
                         accept={accept}
+                        onChange={handleChangeImage}
                     />
                 </div>   
             </button>
+                        
+            {imageError ? (<span>{imageError}</span>) : null}
         </div>
     );
 };
