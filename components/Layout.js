@@ -18,7 +18,7 @@ const menuItems = [
   {
     label: 'Post An Item',
     icon: PlusIcon,
-    href: '/item-listing',
+    href: '/item-creation',
   },
   // {
   //   label: 'Post A Notice',
