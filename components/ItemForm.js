@@ -28,7 +28,14 @@ const ItemForm = ({ onSubmit = () => null }) => {
     category: "",
   };
 
-  const upload = async (image) => {};
+  const upload = async (image) => {
+    if (!image) return;
+    let toastId;
+
+    try {
+      setDisabled(true);
+    } catch {}
+  };
   const handleOnSubmit = async (values = null) => {
     console.log(values);
   };
@@ -84,7 +91,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
               <button
                 type="submit"
                 disabled={disabled || !isValid}
-                className="bg-rose-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-rose-600 focus:ring-opacity-50 hover:bg-rose-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-600"
+                className="bg-blue-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
               >
                 {isSubmitting ? "Submitting..." : "Submit"}
               </button>
