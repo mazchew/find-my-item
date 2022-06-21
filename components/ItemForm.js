@@ -78,7 +78,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
                   onChange={handleChange}
                   disabled={disabled}
                 >
-                  <option value="">Choose...</option>
+                  <option selected>Choose...</option>
                   <option value="ELECTRONICS">Electronics</option>
                   <option value="JEWELLERY">Jewellery</option>
                   <option value="WATER_BOTTLE">Water Bottle</option>
