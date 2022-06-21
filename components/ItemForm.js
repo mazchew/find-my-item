@@ -47,6 +47,21 @@ const ItemForm = ({ onSubmit = () => null }) => {
                 placeholder="Lost item"
                 disabled={disabled}
               />
+              <Input
+                name="location"
+                type="text"
+                label="Location"
+                placeholder="Where was the item found?"
+                disabled={disabled}
+              />
+              <Input
+                name="description"
+                type="textarea"
+                label="Description"
+                placeholder="Item description"
+                rows={4}
+                disabled={disabled}
+              />
             </div>
           </Form>
         )}
