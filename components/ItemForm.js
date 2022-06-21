@@ -13,17 +13,29 @@ const ItemSchema = Yup.object.shape({
   categories: Yup.string().required(),
 });
 
-const ItemForm = () => {
+const ItemForm = ({ onSubmit = () => null }) => {
+  const router = useRouter();
+  const [disabled, setDisabled] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+
   const initialItemValues = {
+    image: "",
     title: "",
     location: "",
     description: "",
     categories: "",
   };
 
+  const handleOnSubmit = async (values = null) => {};
+
   return (
     <div>
-      <Formik></Formik>
+      <Formik
+        initialValues={initialItemValues}
+        validationSchema={ItemSchema}
+        validateOnBlur={false}
+        onSubmit={handleOnSubmit}
+      ></Formik>
     </div>
   );
 };
