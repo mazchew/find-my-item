@@ -44,7 +44,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
         validateOnBlur={false}
         onSubmit={handleOnSubmit}
       >
-        {({ values, errors, touched, isSubmitting, isValid }) => (
+        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid }) => (
           <Form className="space-y-8">
             <div className="space-y-6">
               <Input
