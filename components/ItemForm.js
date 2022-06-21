@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 import * as Yup from "yup";
-// import axios from "axios";
+import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Formik, Form } from "formik";
 import Input from "./Input";
@@ -36,7 +36,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
         validateOnBlur={false}
         onSubmit={handleOnSubmit}
       >
-        {({ isSubmitting, isValid }) => (
+        {({ values, errors, touched, isSubmitting, isValid }) => (
           <Form className="space-y-8">
             <div className="space-y-6">
               <Input
