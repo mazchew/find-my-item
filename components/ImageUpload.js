@@ -42,7 +42,7 @@ const ImageUpload = ({
         if (file) {
             if (file.size <= sizeLimit) {
                 setUpdatingImage(true);
-                setPictureError("");
+                setImageError("");
                 reader.readAsDataURL(file);
             } else {
                 setImageError("File size is over the 5MB limit.");
@@ -59,7 +59,7 @@ const ImageUpload = ({
 
     return (
         <div className="flex flex-col space-y-2">
-            <label className="text-gray-600">Image</label>
+            <label>Image</label>
             <button 
                 onClick={handleOnClickImage}
                 disabled={updatingImage}

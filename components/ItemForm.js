@@ -71,11 +71,12 @@ const ItemForm = ({ onSubmit = () => null }) => {
               />
               <label htmlFor="category">Category</label>
                 <select 
-                  className="custom-select d-block w-100" 
+                  className="custom-select d-block w-100 disabled:cursor-not-allowed disabled:opacity-50" 
                   id="category" 
                   name="category" 
                   value={values.category}
                   onChange={handleChange}
+                  disabled={disabled}
                 >
                   <option value="">Choose...</option>
                   <option value="ELECTRONICS">Electronics</option>
