@@ -46,26 +46,40 @@ const ItemForm = ({ onSubmit = () => null }) => {
                 placeholder="Lost item"
                 disabled={disabled}
               />
-
-            <label htmlFor="category">Category</label>
-              <select 
-                className="custom-select d-block w-100" 
-                id="category" 
-                name="category" 
-                value={values.category}
-                onChange={handleChange}
-              >
-                <option value="">Choose...</option>
-                <option value="ELECTRONICS">Electronics</option>
-                <option value="JEWELLERY">Jewellery</option>
-                <option value="WATER_BOTTLE">Water Bottle</option>
-                <option value="PERSONAL_CARDS">Personal Cards</option>
-                <option value="STUDENT_CARDS">Student Cards</option>
-                <option value="CLOTHING">Clothing</option>
-                <option value="WALLET">Wallet</option>
-                <option value="BAG">Bag</option>
-                <option value="MISCELLANEOUS">Miscellaneous</option>
-              </select> 
+              <Input
+                name="location"
+                type="text"
+                label="Location"
+                placeholder="Where was the item found?"
+                disabled={disabled}
+              />
+              <Input
+                name="description"
+                type="textarea"
+                label="Description"
+                placeholder="Item description"
+                rows={4}
+                disabled={disabled}
+              />
+              <label htmlFor="category">Category</label>
+                <select 
+                  className="custom-select d-block w-100" 
+                  id="category" 
+                  name="category" 
+                  value={values.category}
+                  onChange={handleChange}
+                >
+                  <option value="">Choose...</option>
+                  <option value="ELECTRONICS">Electronics</option>
+                  <option value="JEWELLERY">Jewellery</option>
+                  <option value="WATER_BOTTLE">Water Bottle</option>
+                  <option value="PERSONAL_CARDS">Personal Cards</option>
+                  <option value="STUDENT_CARDS">Student Cards</option>
+                  <option value="CLOTHING">Clothing</option>
+                  <option value="WALLET">Wallet</option>
+                  <option value="BAG">Bag</option>
+                  <option value="MISCELLANEOUS">Miscellaneous</option>
+                </select> 
             </div>
           </Form>
         )}
