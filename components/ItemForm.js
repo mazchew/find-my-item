@@ -54,3 +54,5 @@ const ItemForm = ({ onSubmit = () => null }) => {
     </div>
   );
 };
+
+export default ItemForm;

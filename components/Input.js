@@ -7,7 +7,7 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
   const error = meta?.touched && meta?.error;
 
   return (
-    <div className={(classNames = (className, "flex flex-col space-y-1"))}>
+    <div className={classNames(className, "flex flex-col space-y-1")}>
       {label ? (
         <label htmlFor="email" className="text-grey-600">
           {label}
