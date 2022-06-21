@@ -83,4 +83,15 @@ const ItemForm = ({ onSubmit = () => null }) => {
   );
 };
 
+ItemForm.PropTypes = {
+  initialItemValues: PropTypes.shape({
+    image: PropTypes.string,
+    title: PropTypes.string,
+    location: PropTypes.string,
+    description: PropTypes.string,
+    category: PropTypes.string,
+  }),
+  onSubmit: PropTypes.func,
+};
+
 export default ItemForm;
