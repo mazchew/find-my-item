@@ -5,8 +5,9 @@ import * as Yup from "yup";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Formik, Form } from "formik";
+import Input from "./Input";
 
-const ItemSchema = Yup.object.shape({
+const ItemSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
   location: Yup.string().trim().required(),
   description: Yup.string().trim().required(),
@@ -35,7 +36,23 @@ const ItemForm = ({ onSubmit = () => null }) => {
         validationSchema={ItemSchema}
         validateOnBlur={false}
         onSubmit={handleOnSubmit}
-      ></Formik>
+      >
+        {({ isSubmitting, isValid }) => (
+          <Form className="space-y-8">
+            <div className="space-y-6">
+              <Input
+                name="title"
+                type="text"
+                label="Title"
+                placeholder="Lost item"
+                disabled={disabled}
+              />
+            </div>
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };
+
+export default ItemForm;

@@ -6,7 +6,15 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
   const [field, meta] = useField(props);
   const error = meta?.touched && meta?.error;
 
-  return <div>Input</div>;
+  return (
+    <div className={classNames(className, "flex flex-col space-y-1")}>
+      {label ? (
+        <label htmlFor="email" className="text-grey-600">
+          {label}
+        </label>
+      ) : null}
+    </div>
+  );
 };
 
 Input.propTypes = {
