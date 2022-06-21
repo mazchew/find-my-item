@@ -3,7 +3,7 @@ import ItemForm from "@/components/ItemForm";
 
 const test = () => {
   return (
-    <div>
+    <div className="m-8">
       <ItemForm />
     </div>
   );

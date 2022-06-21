@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Formik, Form } from "formik";
 import Input from "./Input";
+import ImageUpload from "./ImageUpload";
 
 const ItemSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
@@ -18,7 +19,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
   const [disabled, setDisabled] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
 
-  const initialItemValues = {
+  const { image, ...initialItemValues } = {
     image: "",
     title: "",
     location: "",
@@ -26,10 +27,17 @@ const ItemForm = ({ onSubmit = () => null }) => {
     category: "",
   };
 
+  const upload = async (image) => {};
   const handleOnSubmit = async (values = null) => {};
 
   return (
     <div>
+      <div className="mb-8 max-w-md">
+        <ImageUpload
+          initialImage={{ src: image, alt: initialItemValues.title }}
+          onChangePicture={upload}
+        />
+      </div>
       <Formik
         initialValues={initialItemValues}
         validationSchema={ItemSchema}
