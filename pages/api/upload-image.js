@@ -1,7 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { nanoid } from 'nanoid';
 import { decode } from 'base64-arraybuffer';
-import { data } from 'autoprefixer';
 
 const supabase = createClient(
     process.env.SUPABASE_URL,
