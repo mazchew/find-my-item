@@ -73,8 +73,10 @@ const ImageUpload = ({
 
                 <div className="flex items-center justify-center">
                     {!image?.src ? (
-                        <div>
-                            <ArrowUpIcon className="h-4 w-4 text-gray-500 transition"/>
+                        <div className="flex flex col items-center space-y-2">
+                            <div className="shrink-0 rounded-full p-2 bg-gray-200 transition">
+                                <ArrowUpIcon className="h-4 w-4 text-gray-500 transition"/>
+                            </div>
                             <span className="text-gray-500 transition">Upload</span>
                         </div>
                     ) : null}
