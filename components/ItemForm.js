@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import * as Yup from "yup";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { Formik, Form } from "formik";
+import { Formik, Form, yupToFormErrors } from "formik";
 import Input from "./Input";
 import ImageUpload from "./ImageUpload";
 
@@ -12,6 +12,7 @@ const ItemSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
   location: Yup.string().trim().required(),
   description: Yup.string().trim().required(),
+  category: Yup.string().required(),
 });
 
 const ItemForm = ({ onSubmit = () => null }) => {
@@ -28,7 +29,9 @@ const ItemForm = ({ onSubmit = () => null }) => {
   };
 
   const upload = async (image) => {};
-  const handleOnSubmit = async (values = null) => {};
+  const handleOnSubmit = async (values = null) => {
+    console.log(values);
+  };
 
   return (
     <div>
@@ -75,6 +78,16 @@ const ItemForm = ({ onSubmit = () => null }) => {
                 label="Category"
                 disabled={disabled}
               />
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                disabled={disabled || !isValid}
+                className="bg-rose-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-rose-600 focus:ring-opacity-50 hover:bg-rose-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-rose-600"
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
             </div>
           </Form>
         )}

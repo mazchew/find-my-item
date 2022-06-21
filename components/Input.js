@@ -45,7 +45,9 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
         {...props}
         className="w-full shadow-sm rounded-md py-2 pl-4 truncate border focus:outline-none focus:ring-4 focus:ring-opacity-20 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        <option selected>Choose...</option>
+        <option value="" selected>
+          Choose...
+        </option>
         <option value="ELECTRONICS">Electronics</option>
         <option value="JEWELLERY">Jewellery</option>
         <option value="WATER_BOTTLE">Water Bottle</option>
