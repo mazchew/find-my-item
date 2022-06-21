@@ -44,7 +44,16 @@ const ItemForm = ({ onSubmit = () => null }) => {
         validateOnBlur={false}
         onSubmit={handleOnSubmit}
       >
-        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting, isValid }) => (
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+          isValid,
+        }) => (
           <Form className="space-y-8">
             <div className="space-y-6">
               <Input
@@ -69,26 +78,12 @@ const ItemForm = ({ onSubmit = () => null }) => {
                 rows={4}
                 disabled={disabled}
               />
-              <label htmlFor="category">Category</label>
-                <select 
-                  className="custom-select d-block w-100 disabled:cursor-not-allowed disabled:opacity-50" 
-                  id="category" 
-                  name="category" 
-                  value={values.category}
-                  onChange={handleChange}
-                  disabled={disabled}
-                >
-                  <option value="">Choose...</option>
-                  <option value="ELECTRONICS">Electronics</option>
-                  <option value="JEWELLERY">Jewellery</option>
-                  <option value="WATER_BOTTLE">Water Bottle</option>
-                  <option value="PERSONAL_CARDS">Personal Cards</option>
-                  <option value="STUDENT_CARDS">Student Cards</option>
-                  <option value="CLOTHING">Clothing</option>
-                  <option value="WALLET">Wallet</option>
-                  <option value="BAG">Bag</option>
-                  <option value="MISCELLANEOUS">Miscellaneous</option>
-                </select> 
+              <Input
+                name="category"
+                type="select"
+                label="Category"
+                disabled={disabled}
+              />
             </div>
           </Form>
         )}
