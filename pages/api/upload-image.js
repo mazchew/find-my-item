@@ -7,6 +7,14 @@ const supabase = createClient(
     process.env.SUPABASE_KEY
 );
 
+export const config = {
+    api: {
+      bodyParser: {
+        sizeLimit: '5mb',
+      },
+    },
+};
+
 
 export default async function handler(req, res) {
     if (req.method === "POST") {
@@ -52,4 +60,4 @@ export default async function handler(req, res) {
         res.setHeader("Allow", ["POST"]);
         res.status(405).json({ message: "Method not supported" });
     }
-}
+};
