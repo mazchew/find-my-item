@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 
 const Card = ({ id = "", image = "", title = "", location = "" }) => (
-  <Link href={`/index`}>
+  <Link href={`/items/${id}`}>
     <a className="block w-full">
       <div className="relative">
         <div className="bg-gray-200 rounded-lg shadow overflow-hidden aspect-w-9 aspect-h-9">
