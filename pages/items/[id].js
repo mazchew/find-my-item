@@ -26,6 +26,17 @@ const PostedItem = (item = null) => {
                     </div>
                 </div>
 
+                <div className="mt-6 relative aspect-w-9 aspect-h-9 bg-gray-200 rounded-lg shadow-md overflow-hidden">
+                    {item?.image ? (
+                        <Image
+                        src={item.image}
+                        alt={item.title}
+                        layout="fill"
+                        objectFit="cover"
+                        />
+                    ) : null}
+                </div>
+
                 <p className="mt-8 text-lg">{item?.description ?? ''}</p>
             </div>
         </Layout>
