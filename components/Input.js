@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { useField } from "formik";
-import { Category } from '@prisma/client';
+import { Category } from "@prisma/client";
 
 const Input = ({ type = "", label = "", className = "", ...props }) => {
   const [field, meta] = useField(props);
@@ -47,15 +47,15 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
         className="w-full shadow-sm rounded-md py-2 pl-4 truncate border focus:outline-none focus:ring-4 focus:ring-opacity-20 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <option value="">Choose...</option>
-        <option value={ Category.ELECTRONICS }>Electronics</option>
-        <option value={ Category.JEWELLERY }>Jewellery</option>
-        <option value={ Category.WATER_BOTTLE }>Water Bottle</option>
-        <option value={ Category.PERSONAL_CARDS }>Personal Cards</option>
-        <option value={ Category.STUDENT_CARDS }>Student Cards</option>
-        <option value={ Category.CLOTHING }>Clothing</option>
-        <option value={ Category.WALLET }>Wallet</option>
-        <option value={ Category.BAG }>Bag</option>
-        <option value={ Category.MISCELLANEOUS }>Miscellaneous</option>
+        <option value="ELECTRONICS">Electronics</option>
+        <option value="JEWELLERY">Jewellery</option>
+        <option value="WATER_BOTTLE">Water Bottle</option>
+        <option value="PERSONAL_CARDS">Personal Cards</option>
+        <option value="STUDENT_CARDS">Student Cards</option>
+        <option value="CLOTHING">Clothing</option>
+        <option value="WALLET">Wallet</option>
+        <option value="BAG">Bag</option>
+        <option value="MISCELLANEOUS">Miscellaneous</option>
       </select>
     );
   }

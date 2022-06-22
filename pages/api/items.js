@@ -12,9 +12,8 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      console.log(req.body);
       const { image, title, description, location, category } = req.body;
-    //   console.log(image);
+      //   console.log(image);
 
       const item = await prisma.item.create({
         data: {
@@ -22,13 +21,14 @@ export default async function handler(req, res) {
           title,
           description,
           location,
-          category
+          category,
+          ownerId: user.id,
         },
       });
       res.status(200).json(item);
     } catch (e) {
-        console.log(e);
-      res.status(500).json({ message: `${e}`  });
+      console.log(e);
+      res.status(500).json({ message: `${e}` });
     }
   } else {
     res.setHeader("Allow", ["POST"]);

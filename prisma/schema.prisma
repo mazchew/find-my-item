@@ -41,7 +41,7 @@ model Item {
   location    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  category    Category
+  category    String
 }
 
 enum Category {
