@@ -36,7 +36,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
     try {
       setDisabled(true);
       toastId = toast.loading("Uploading...");
-      const { data } = await axios.post("/api/image-upload", { image });
+      const { data } = await axios.post("/api/upload-image", { image });
       setImageUrl(data?.url);
       console.log(data);
       toast.success("Successfully uploaded", { id: toastId });
@@ -48,7 +48,6 @@ const ItemForm = ({ onSubmit = () => null }) => {
     }
   };
   const handleOnSubmit = async (values = null) => {
-    console.log(values);
     let toastId;
 
     try {
