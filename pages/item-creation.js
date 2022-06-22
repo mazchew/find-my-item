@@ -1,46 +1,45 @@
-import Layout from '@/components/Layout';
-import ItemForm from '@/components/ItemForm'
-import axios from 'axios';
+import Layout from "@/components/Layout";
+import ItemForm from "@/components/ItemForm";
+import axios from "axios";
 import { getSession } from "next-auth/react";
 
-
 export async function getServerSideProps(context) {
-    const session = await getSession(context);
+  const session = await getSession(context);
 
-    if (!session) {
-      return {
-        redirect: {
-          destination: "/",
-          permanent: false,
-        },
-      };
-    }
-  
+  if (!session) {
     return {
-      props: {},
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
     };
+  }
+
+  return {
+    props: {},
+  };
 }
 
 const CreateItem = () => {
-    const createItem = data => axios.post('api/items', data)
+  const createItem = (data) => axios.post("/api/items", data);
 
-    return (
-        <Layout>
-            <div className="max-w-screen-sm mx-auto">
-                <h1 className="text-xl font-medium text-gray-800">Post new item</h1>
-                <p className="text-gray-500">
-                    Fill in the form below to post a new item.
-                </p>
-                <div className="mt-8">
-                <ItemForm
-                    buttonText="Add item"
-                    redirectPath="/"
-                    onSubmit={createItem}
-                />
-                </div>
-            </div>
-        </Layout>
-    );
+  return (
+    <Layout>
+      <div className="max-w-screen-sm mx-auto">
+        <h1 className="text-xl font-medium text-gray-800">Post new item</h1>
+        <p className="text-gray-500">
+          Fill in the form below to post a new item.
+        </p>
+        <div className="mt-8">
+          <ItemForm
+            buttonText="Add item"
+            redirectPath="/"
+            onSubmit={createItem}
+          />
+        </div>
+      </div>
+    </Layout>
+  );
 };
 
 export default CreateItem;

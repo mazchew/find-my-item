@@ -32,7 +32,6 @@ const ItemForm = ({ onSubmit = () => null }) => {
   const upload = async (image) => {
     if (!image) return;
     let toastId;
-    console.log(image);
     try {
       setDisabled(true);
       toastId = toast.loading("Uploading...");
