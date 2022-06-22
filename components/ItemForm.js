@@ -57,6 +57,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
       toast.success("Successfully submitted", { id: toastId });
       router.push("/");
     } catch (e) {
+      console.log(e);
       toast.error("Unable to submit", { id: toastId });
       setDisabled(false);
     }
