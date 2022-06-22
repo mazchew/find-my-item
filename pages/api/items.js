@@ -22,7 +22,6 @@ export default async function handler(req, res) {
           description,
           location,
           category,
-          ownerId: user.id,
         },
       });
       res.status(200).json(item);
