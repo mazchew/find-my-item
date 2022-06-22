@@ -52,7 +52,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
       setDisabled(true);
       toastId = toast.loading("Submitting...");
       if (typeof onSubmit === "function") {
-        await onSubmit({ ...values, image: imageUrl });
+        await onSubmit({ image: imageUrl, ...values });
       }
       toast.success("Successfully submitted", { id: toastId });
       router.push("/");
