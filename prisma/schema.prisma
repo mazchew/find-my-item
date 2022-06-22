@@ -33,16 +33,15 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-
 model Item {
-  id              String   @id @default(cuid())
-  image           String
-  title           String
-  description     String
-  location        String
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-  categories      Category[]
+  id          String   @id @default(cuid())
+  image       String
+  title       String
+  description String
+  location    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  category    Category
 }
 
 enum Category {
@@ -56,4 +55,3 @@ enum Category {
   BAG
   MISCELLANEOUS
 }
-
