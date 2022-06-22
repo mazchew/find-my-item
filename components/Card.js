@@ -22,7 +22,7 @@ const Card = ({ id = "", image = "", title = "", location = "" }) => (
       <div className="mt-2 w-full text-gray-700 font-semibold leading-tight">
         {title ?? ""}
       </div>
-      <div className="flex items-center">
+      <div className="inline-flex items-center space-x-1">
         <LocationMarkerIcon className="h-4 w-4" />
         <div>{location}</div>
       </div>
