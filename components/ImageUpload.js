@@ -80,7 +80,7 @@ const ImageUpload = ({
 
         <div className="flex items-center justify-center">
           {!image?.src ? (
-            <div className="flex flex col items-center space-y-2">
+            <div className="flex col items-center space-y-2">
               <div className="shrink-0 rounded-full p-2 bg-gray-200 transition group-hover:scale-110 group-focus:scale-110">
                 <ArrowUpIcon className="h-4 w-4 text-gray-500 transition" />
               </div>
