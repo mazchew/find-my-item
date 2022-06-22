@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { Formik, Form, yupToFormErrors } from "formik";
 import Input from "./Input";
 import ImageUpload from "./ImageUpload";
+import { ToDate } from "faunadb";
 
 const ItemSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
@@ -31,10 +32,20 @@ const ItemForm = ({ onSubmit = () => null }) => {
   const upload = async (image) => {
     if (!image) return;
     let toastId;
-
+    console.log(image);
     try {
       setDisabled(true);
-    } catch {}
+      toastId = toast.loading("Uploading...");
+      const { data } = await axios.post("/api/image-upload", { image });
+      setImageUrl(data?.url);
+      console.log(data);
+      toast.success("Successfully uploaded", { id: toastId });
+    } catch (e) {
+      toast.error("Unable to upload", { id: toastId });
+      setImageUrl("");
+    } finally {
+      setDisabled(false);
+    }
   };
   const handleOnSubmit = async (values = null) => {
     console.log(values);
@@ -103,7 +114,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
   );
 };
 
-ItemForm.PropTypes = {
+ItemForm.propTypes = {
   initialItemValues: PropTypes.shape({
     image: PropTypes.string,
     title: PropTypes.string,
