@@ -43,6 +43,10 @@ export default NextAuth({
         signIn: '/signin',
         verifyRequest: '/verifyemail',
     },
+    secret: process.env.NEXTAUTH_SECRET,
+    session: {
+      strategy:"jwt",
+    },
     providers: [
       EmailProvider({
         server: {
@@ -58,6 +62,6 @@ export default NextAuth({
         sendVerificationRequest,
       }),
     ],
-    secret: process.env.NEXTAUTH_SECRET,
+    useSecureCookies:false,
     adapter: PrismaAdapter(prisma),
 });
