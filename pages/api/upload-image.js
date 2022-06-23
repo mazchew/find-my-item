@@ -49,7 +49,7 @@ export default async function handler(req, res) {
       const url = `${process.env.SUPABASE_URL}/storage/v1/object/public/${data.Key}`;
       return res.status(200).json({ url });
     } catch (error) {
-      res.status(500).json({ message: "Error" });
+      res.status(500).json({ message: error.data });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
