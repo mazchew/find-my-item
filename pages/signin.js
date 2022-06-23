@@ -19,7 +19,7 @@ const Signin = () => {
     let toastId;
     try {
       toastId = toast.loading("Loading...");
-      const { error } = signIn("email", { callbackUrl: "/", email });
+      const { error } = await signIn("email", { callbackUrl: "/", email });
       if (error) {
         console.log("sign in error");
         throw new Error(error);
@@ -37,7 +37,7 @@ const Signin = () => {
           validationSchema={SignInSchema}
           onSubmit={signInWithEmail}
         >
-          <Form className="mt-4" onSubmit={signInWithEmail}>
+          <Form className="mt-4">
             <div className="absolute w-full h-full">
               <div className="container mx-auto px-4 h-full">
                 <div className="flex content-center items-center justify-center h-full">
