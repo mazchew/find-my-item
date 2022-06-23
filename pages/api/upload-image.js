@@ -42,6 +42,7 @@ export default async function handler(req, res) {
         });
 
       if (uploadError) {
+        console.log("upload error --> cannot upload to supabase");
         console.log(uploadError);
         throw new Error("Unable to upload image to storage");
       }
