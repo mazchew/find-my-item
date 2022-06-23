@@ -19,7 +19,7 @@ const Signin = () => {
     let toastId;
     try {
       toastId = toast.loading("Loading...");
-      const { error } = await signIn("email", { callbackUrl: "/", email });
+      const { error } = signIn("email", { callbackUrl: "/", email });
       if (error) {
         console.log("sign in error");
         throw new Error(error);
