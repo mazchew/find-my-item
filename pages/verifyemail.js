@@ -19,7 +19,7 @@ const VerifyEmail = () => {
                                 </h3>
 
                                 <p className="text-lg text-center mt-4">
-                                    We've emailed a magic link to you.
+                                    We&apos;ve emailed a magic link to you.
                                     <br />
                                     Check your inbox and click the link in the email to sign in.
                                     <br />

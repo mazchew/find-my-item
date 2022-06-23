@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/Link';
 import * as Yup from 'yup';
-// import NextAuth from 'next-auth';
 import { signIn } from "next-auth/react";
 import { toast } from 'react-hot-toast';
 import { Formik, Form } from 'formik';
