@@ -16,7 +16,7 @@ const transporter = nodemailer.createTransport({
       user: process.env.EMAIL_SERVER_USER,
       pass: process.env.EMAIL_SERVER_PASSWORD,
     },
-    secure: true,
+    secure: false,
 });
 
 const emailsDir = path.resolve(process.cwd(), 'emails');
