@@ -53,13 +53,11 @@ export default async function handler(req, res) {
       return res.status(200).json({ url });
     } catch (error) {
       console.log("upload-image error");
-      res
-        .status(500)
-        .json({
-          message:
-            error.data +
-            `ext: ${ext} , path: ${path}, contentType: ${contentType}`,
-        });
+      res.status(500).json({
+        message:
+          error.data +
+          `ext: ${ext} , path: ${path}, contentType: ${contentType}`,
+      });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
