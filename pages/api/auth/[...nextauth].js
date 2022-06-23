@@ -46,6 +46,7 @@ export default NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
     session: {
       strategy:"jwt",
+      maxAge: 10 * 60,
     },
     providers: [
       EmailProvider({
@@ -56,9 +57,9 @@ export default NextAuth({
             user: process.env.EMAIL_SERVER_USER,
             pass: process.env.EMAIL_SERVER_PASSWORD,
           },
+          ignoreTLS:true,
         },
         from: process.env.EMAIL_FROM,
-        maxAge: 10 * 60,
         sendVerificationRequest,
       }),
     ],
