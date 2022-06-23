@@ -34,6 +34,11 @@ export default async function handler(req, res) {
       const ext = contentType.split("/")[1];
       const path = `${fileName}.${ext}`;
 
+      console.log("fileName: " + fileName);
+      console.log("ext: " + ext);
+      console.log("path: " + path);
+      console.log("decoded base64 filedata: " + decode(base64FileData));
+
       const { data, error: uploadError } = await supabase.storage
         .from(process.env.SUPABASE_BUCKET)
         .upload(path, decode(base64FileData), {
