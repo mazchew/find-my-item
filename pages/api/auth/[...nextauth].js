@@ -58,5 +58,6 @@ export default NextAuth({
         sendVerificationRequest,
       }),
     ],
+    secret: process.env.NEXTAUTH_SECRET,
     adapter: PrismaAdapter(prisma),
   });
