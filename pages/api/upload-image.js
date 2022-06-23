@@ -45,8 +45,10 @@ export default async function handler(req, res) {
         console.log(uploadError);
         throw new Error("Unable to upload image to storage");
       }
-
+      console.log(data.Key);
+      console.log(data);
       const url = `${process.env.SUPABASE_URL}/storage/v1/object/public/${data.Key}`;
+      console.log(url);
       return res.status(200).json({ url });
     } catch (error) {
       console.log("upload-image error")
