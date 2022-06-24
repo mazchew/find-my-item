@@ -41,11 +41,11 @@ export default async function handler(req, res) {
 
       const { data, error: uploadError } = await supabase.storage
         .from(process.env.SUPABASE_BUCKET)
-        .upload(path, decode(base64FileData), {
+        .upload(path, image, {
           contentType,
           cacheControl: "3600",
           upsert: true,
-        });
+      });
 
       if (uploadError) {
         console.log("upload error --> cannot upload to supabase");
