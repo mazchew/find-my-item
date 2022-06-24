@@ -27,7 +27,7 @@ const sendVerificationRequest = ({ identifier, url }) => {
   });
   const emailTemplate = Handlebars.compile(emailFile);
   transporter.sendMail({
-    from: `"🔍 FindMyItem" ${process.env.EMAIL_FROM}`,
+    from: `"🔍 FindMyItem" <${process.env.EMAIL_FROM}>`,
     to: identifier,
     subject: 'Your sign-in link for FindMyItem',
     html: emailTemplate({
