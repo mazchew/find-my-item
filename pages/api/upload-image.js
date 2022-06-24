@@ -4,7 +4,7 @@ import { decode } from "base64-arraybuffer";
 
 const supabase = createClient(
   "https://dpgffxgdkkvcmhdssyac.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkdnZxZHBwZGRla2N1YmVxdmhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ5NjcwODYsImV4cCI6MTk3MDU0MzA4Nn0.k0vn8mdwW2uMUy0ODkC-D4_VtrWqEmXaotG3spqxi18"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZ2ZmeGdka2t2Y21oZHNzeWFjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY1NjAwOTczNywiZXhwIjoxOTcxNTg1NzM3fQ.iYgaGjyzZTqWOeMSiN54_v-BoWK5g9WnFYZWanRF-rY"
 );
 
 export const config = {
