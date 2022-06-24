@@ -134,7 +134,7 @@ const Layout = ({ children }) => {
                   </Menu>
                 ) : (
                   <Link href="/signin">
-                    <a className="ml-4 px-4 py-1 rounded-md bg-blue-600 hover:bg-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500 focus:ring-opacity-50 text-white transition">
+                    <a className="ml-4 px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white transition">
                       Sign In
                     </a>
                   </Link>
