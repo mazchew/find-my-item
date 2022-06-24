@@ -41,11 +41,11 @@ export default async function handler(req, res) {
 
       const { data, error: uploadError } = await supabase.storage
         .from(process.env.SUPABASE_BUCKET)
-        .upload(path, image, {
+        .upload(path, decode(base64FileData), {
           contentType,
           cacheControl: "3600",
           upsert: true,
-      });
+        });
 
       if (uploadError) {
         console.log("upload error --> cannot upload to supabase");
@@ -54,10 +54,7 @@ export default async function handler(req, res) {
       }
       console.log(data.Key);
       console.log(data);
-      const url = `${process.env.SUPABASE_URL.replace(
-        '.co',
-        '.in'
-      )}/storage/v1/object/public/${data.Key}`;
+      const url = `${process.env.SUPABASE_URL}/storage/v1/object/public/${data.Key}`;
       console.log(url);
       return res.status(200).json({ url });
     } catch (error) {
