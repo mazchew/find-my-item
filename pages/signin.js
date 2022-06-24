@@ -71,7 +71,7 @@ const Signin = () => {
                           <div className="text-center mt-6">
                             <button
                               onClick={signInWithEmail}
-                              className="bg-blue-600 text-white text-med px-6 py-3 rounded shadow hover:bg-rose-500 outline-none focus:outline-none mr-1 mb-1 w-full"
+                              className="bg-blue-600 text-white text-med px-6 py-3 rounded shadow hover:bg-blue-500 outline-none focus:outline-none mr-1 mb-1 w-full"
                               type="submit"
                               styles="transition: all 0.15s ease 0s;"
                             >
