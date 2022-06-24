@@ -43,7 +43,6 @@ export default async function handler(req, res) {
         .from("findmyitem")
         .upload(path, decode(base64FileData), {
           contentType,
-          cacheControl: "3600",
           upsert: true,
         });
 
