@@ -34,15 +34,8 @@ const ItemForm = ({ onSubmit = () => null }) => {
     try {
       setDisabled(true);
       toastId = toast.loading("Uploading...");
-<<<<<<< HEAD
       const { data } = await axios.post(`/api/upload-image`, { image });
       console.log(data?.url);
-=======
-      const { data } = await axios.post(
-        `${process.env.API_PATH}/api/upload-image`,
-        { image }
-      );
->>>>>>> parent of a4f5a32 (undo)
       setImageUrl(data?.url);
       toast.success("Successfully uploaded", { id: toastId });
     } catch (e) {
