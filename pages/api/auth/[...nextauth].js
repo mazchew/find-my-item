@@ -57,7 +57,7 @@ export default NextAuth({
             user: process.env.EMAIL_SERVER_USER,
             pass: process.env.EMAIL_SERVER_PASSWORD,
           },
-          ignoreTLS:true,
+          ignoreTLS: true,
         },
         from: process.env.EMAIL_FROM,
         sendVerificationRequest,
