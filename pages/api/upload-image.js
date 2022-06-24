@@ -3,8 +3,8 @@ import { nanoid } from "nanoid";
 import { decode } from "base64-arraybuffer";
 
 const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
+  "https://udvvqdppddekcubeqvhg.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkdnZxZHBwZGRla2N1YmVxdmhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ5NjcwODYsImV4cCI6MTk3MDU0MzA4Nn0.k0vn8mdwW2uMUy0ODkC-D4_VtrWqEmXaotG3spqxi18"
 );
 
 export const config = {
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       console.log("decoded base64 filedata: " + decode(base64FileData));
 
       const { data, error: uploadError } = await supabase.storage
-        .from(process.env.SUPABASE_BUCKET)
+        .from("findmyitem")
         .upload(path, decode(base64FileData), {
           contentType,
           cacheControl: "3600",
