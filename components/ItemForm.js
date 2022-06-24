@@ -34,7 +34,13 @@ const ItemForm = ({ onSubmit = () => null }) => {
     try {
       setDisabled(true);
       toastId = toast.loading("Uploading...");
-      const { data } = await axios.post(`/api/upload-image`, { image });
+      console.log(process.env.NEXTAUTH_URL);
+      console.log(process.env.SUPABASE_URL);
+      const dev = process.env.NODE_ENV !== "production";
+      const server = dev
+        ? "http://localhost:3000/api/upload-image"
+        : "https://find-my-item.vercel.app/api/upload-image";
+      const { data } = await axios.post(server, { image });
       console.log(data?.url);
       setImageUrl(data?.url);
       toast.success("Successfully uploaded", { id: toastId });
