@@ -13,7 +13,7 @@ const VerifyEmail = () => {
                             <div className="overflow-hidden transition-all transform">
                                 <h3 className="text-center font-medium leading-6">
                                     <div className="flex flex-col justify-center items-center space-y-4">
-                                        <MailOpenIcon className="w-12 h-12 shrink-0 text-rose-500" />
+                                        <MailOpenIcon className="w-12 h-12 shrink-0 text-blue-500" />
                                     </div>
                                     <p className="text-2xl font-semibold mt-2">Confirm your email.</p>
                                 </h3>
