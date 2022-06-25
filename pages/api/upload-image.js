@@ -3,8 +3,8 @@ import { nanoid } from "nanoid";
 import { decode } from "base64-arraybuffer";
 
 const supabase = createClient(
-  "https://dpgffxgdkkvcmhdssyac.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkdnZxZHBwZGRla2N1YmVxdmhnIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NTQ5NjcwODYsImV4cCI6MTk3MDU0MzA4Nn0.k0vn8mdwW2uMUy0ODkC-D4_VtrWqEmXaotG3spqxi18"
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
 );
 
 export const config = {
@@ -40,9 +40,10 @@ export default async function handler(req, res) {
       console.log("decoded base64 filedata: " + decode(base64FileData));
 
       const { data, error: uploadError } = await supabase.storage
-        .from("findmyitem")
+        .from(process.env.SUPABASE_BUCKET)
         .upload(path, decode(base64FileData), {
           contentType,
+          cacheControl: "3600",
           upsert: true,
         });
 
@@ -53,7 +54,7 @@ export default async function handler(req, res) {
       }
       console.log(data.Key);
       console.log(data);
-      const url = `https://dpgffxgdkkvcmhdssyac.supabase.co/storage/v1/object/public/${data.Key}`;
+      const url = `${process.env.SUPABASE_URL}/storage/v1/object/public/${data.Key}`;
       console.log(url);
       return res.status(200).json({ url });
     } catch (error) {
