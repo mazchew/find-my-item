@@ -3,8 +3,8 @@ import { nanoid } from "nanoid";
 import { decode } from "base64-arraybuffer";
 
 const supabase = createClient(
-  "https://dpgffxgdkkvcmhdssyac.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRwZ2ZmeGdka2t2Y21oZHNzeWFjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY1NjAwOTczNywiZXhwIjoxOTcxNTg1NzM3fQ.iYgaGjyzZTqWOeMSiN54_v-BoWK5g9WnFYZWanRF-rY"
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_KEY
 );
 
 export const config = {
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
       }
       console.log(data.Key);
       console.log(data);
-      const url = `https://dpgffxgdkkvcmhdssyac.supabase.co/storage/v1/object/public/${data.Key}`;
+      const url = `${process.env.SUPABASE_URL}/storage/v1/object/public/${data.Key}`;
       console.log(url);
       return res.status(200).json({ url });
     } catch (error) {
