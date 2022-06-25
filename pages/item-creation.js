@@ -3,6 +3,23 @@ import ItemForm from "@/components/ItemForm";
 import axios from "axios";
 import { getSession } from "next-auth/react";
 
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
+
 const CreateItem = () => {
   const createItem = (data) =>
     axios.post("/api/items", data, {
