@@ -1,8 +1,6 @@
 import Layout from "@/components/Layout";
 import Grid from "@/components/Grid";
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 // get data from database instead of json file
 export async function getServerSideProps() {

@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import Layout from '@/components/Layout';
 import { LocationMarkerIcon } from "@heroicons/react/solid";
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 const PostedItem = (item = null) => {
     return (
