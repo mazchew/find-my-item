@@ -34,14 +34,10 @@ const ItemForm = ({ onSubmit = () => null }) => {
     try {
       setDisabled(true);
       toastId = toast.loading("Uploading...");
-      console.log(process.env.NEXTAUTH_URL);
-      console.log(process.env.SUPABASE_URL);
       const { data } = await axios.post("/api/upload-image", { image });
-      console.log(data?.url);
       setImageUrl(data?.url);
       toast.success("Successfully uploaded", { id: toastId });
     } catch (e) {
-      console.log(e);
       toast.error("Unable to upload", { id: toastId });
       setImageUrl("");
     } finally {
@@ -50,8 +46,6 @@ const ItemForm = ({ onSubmit = () => null }) => {
   };
   const handleOnSubmit = async (values = null) => {
     let toastId;
-    console.log(values);
-
     try {
       setDisabled(true);
       toastId = toast.loading("Submitting...");
@@ -61,7 +55,6 @@ const ItemForm = ({ onSubmit = () => null }) => {
       toast.success("Successfully submitted", { id: toastId });
       router.push("/");
     } catch (e) {
-      console.log(e);
       toast.error("Unable to submit", { id: toastId });
       setDisabled(false);
     }
