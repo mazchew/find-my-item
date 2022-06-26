@@ -21,7 +21,10 @@ export async function getServerSideProps(context) {
 }
 
 const CreateItem = () => {
-  const createItem = (data) => axios.post("/api/items", data, {headers: {'Content-Type': 'application/json'}});
+  const createItem = (data) =>
+    axios.post("/api/items", data, {
+      headers: { "Content-Type": "application/json" },
+    });
 
   return (
     <Layout>

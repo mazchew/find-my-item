@@ -35,9 +35,10 @@ export default async function handler(req, res) {
       console.log("decoded base64 filedata: " + decode(base64FileData));
 
       const { data, error: uploadError } = await supabase.storage
-        .from("findmyitem")
+        .from(process.env.SUPABASE_BUCKET)
         .upload(path, decode(base64FileData), {
           contentType,
+          cacheControl: "3600",
           upsert: true,
         });
 
