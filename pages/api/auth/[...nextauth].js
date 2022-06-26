@@ -43,25 +43,11 @@ export default NextAuth({
         verifyRequest: '/verifyemail',
     },
     secret: process.env.NEXTAUTH_SECRET,
-    session: {
-      strategy:"jwt",
-      maxAge: 10 * 60,
-    },
     providers: [
       EmailProvider({
-        server: {
-          host: process.env.EMAIL_SERVER_HOST,
-          port: process.env.EMAIL_SERVER_PORT,
-          auth: {
-            user: process.env.EMAIL_SERVER_USER,
-            pass: process.env.EMAIL_SERVER_PASSWORD,
-          },
-          ignoreTLS: true,
-        },
-        from: process.env.EMAIL_FROM,
+        maxAge: 10 * 60,
         sendVerificationRequest,
       }),
     ],
-    useSecureCookies:false,
     adapter: PrismaAdapter(prisma),
 });
