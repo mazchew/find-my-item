@@ -21,7 +21,6 @@ const Signin = () => {
       toastId = toast.loading("Loading...");
       const { error } = signIn("email", { callbackUrl: "/", email });
       if (error) {
-        console.log("sign in error");
         throw new Error(error);
       }
     } catch (error) {

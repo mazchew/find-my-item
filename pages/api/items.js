@@ -1,5 +1,5 @@
 import { getSession } from "next-auth/react";
-import { prisma } from '@/lib/prisma';
+import { prisma } from "@/lib/prisma";
 
 export default async function handler(req, res) {
   const session = await getSession({ req });
@@ -11,8 +11,6 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const { image, title, description, location, category } = req.body;
-      //   console.log(image);
-
       const item = await prisma.item.create({
         data: {
           image,
@@ -24,7 +22,6 @@ export default async function handler(req, res) {
       });
       res.status(200).json(item);
     } catch (e) {
-      console.log(e);
       res.status(500).json({ message: `${e}` });
     }
   } else {
