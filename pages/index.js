@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import Grid from "@/components/Grid";
-import { prisma } from '@/lib/prisma';
+import { prisma } from "@/lib/prisma";
 
 // get data from database instead of json file
 export async function getServerSideProps() {
@@ -9,10 +9,9 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      items: JSON.parse(JSON.stringify(items))
+      items: JSON.parse(JSON.stringify(items)),
     },
   };
-
 }
 
 export default function Home({ items = [] }) {
