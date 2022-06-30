@@ -23,6 +23,8 @@ model User {
   email         String    @unique
   emailVerified DateTime
   sessions      Session[]
+  items         Item[]
+  notices       Notice[]
 }
 
 model VerificationToken {
@@ -42,6 +44,21 @@ model Item {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   category    Category
+  owner       User @relation(fields: [ownerId], references: [id])
+  ownerId     String
+}
+
+model Notice {
+  id          String   @id @default(cuid())
+  image       String
+  title       String
+  description String
+  location    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  category    Category
+  owner       User @relation(fields: [ownerId], references: [id])
+  ownerId     String
 }
 
 enum Category {

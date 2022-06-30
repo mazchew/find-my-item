@@ -11,6 +11,9 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const { image, title, description, location, category } = req.body;
+      const user = await prisma.user.findUnique({
+        where: { email: session.user.email },
+      });
       const item = await prisma.item.create({
         data: {
           image,
@@ -18,6 +21,7 @@ export default async function handler(req, res) {
           description,
           location,
           category,
+          ownerId: user.id,
         },
       });
       res.status(200).json(item);
