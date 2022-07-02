@@ -22,7 +22,7 @@ const Card = ({ id = "", image = "", title = "", location = "", createdAt = "" }
       </div>
       <div className="mt-2 w-full justify-between text-gray-700 font-semibold leading-tight">
         {title ?? ""}
-        <span className="order-last"> {moment(createdAt ?? "").fromNow()} </span>
+        <span> {moment(createdAt ?? "").fromNow()} </span>
       </div>
       <div className="inline-flex items-center space-x-1">
         <LocationMarkerIcon className="h-4 w-4" />
