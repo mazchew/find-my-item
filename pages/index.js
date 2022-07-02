@@ -1,18 +1,17 @@
 import Layout from "@/components/Layout";
 import Grid from "@/components/Grid";
-import { prisma } from '@/lib/prisma';
+import { prisma } from "@/lib/prisma";
 
 // get data from database instead of json file
 export async function getServerSideProps() {
   // get items
-  const items = await prisma.item.findMany();
+  const items = await prisma.item.findMany({ orderBy: { createdAt: "desc" } });
 
   return {
     props: {
-      items: JSON.parse(JSON.stringify(items))
+      items: JSON.parse(JSON.stringify(items)),
     },
   };
-
 }
 
 export default function Home({ items = [] }) {

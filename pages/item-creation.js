@@ -34,7 +34,7 @@ const CreateItem = () => {
           Fill in the form below to post a new item.
         </p>
         <div className="mt-8">
-          <ItemForm onSubmit={createItem} />
+          <ItemForm onSubmit={createItem} redirectPath="/" />
         </div>
       </div>
     </Layout>
