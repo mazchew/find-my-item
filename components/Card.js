@@ -16,7 +16,9 @@ const Card = ({
   <Link href={`/items/${id}`}>
     <a className="block w-full">
       <div className="relative flex flex-col flex-none">
-        <span className="bg-blue-100 text-blue-800 text-xs font-semibold z-10 absolute top-3 left-3 bg-blue-600 py-1 px-2 rounded-sm">{category.replaceAll("_", " ")}</span>
+        <span className="bg-blue-100 text-blue-800 text-xs font-semibold z-10 absolute top-3 left-3 bg-blue-600 py-1 px-2 rounded-sm">
+          {category.replace("_", " ")}
+        </span>
         <div className="bg-gray-200 rounded-lg shadow overflow-hidden aspect-w-9 aspect-h-9">
           {image ? (
             <Image
@@ -40,7 +42,6 @@ const Card = ({
             {moment(createdAt ?? "").fromNow()}
           </div>
         </div> */}
-
       </div>
       <div className="inline-flex items-center space-x-1">
         <LocationMarkerIcon className="h-4 w-4" />
