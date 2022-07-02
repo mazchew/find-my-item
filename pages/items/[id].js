@@ -20,7 +20,7 @@ const PostedItem = (item = null) => {
                 <span>{item?.location ?? ""} ·</span>
               </li>
               <li>
-                <span>{item?.category ?? ""} ·</span>
+                <span>{item?.category.replaceAll("_", " ") ?? ""} ·</span>
               </li>
               <li>
                 {/* {console.log(moment(item?.createdAt ?? "").format('DD/MM/YYYY'))} */}
