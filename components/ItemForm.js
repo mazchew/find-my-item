@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { Formik, Form, yupToFormErrors } from "formik";
 import Input from "./Input";
 import ImageUpload from "./ImageUpload";
+import { redirect } from "next/dist/server/api-utils";
 
 const ItemSchema = Yup.object().shape({
   title: Yup.string().trim().required(),
@@ -15,12 +16,17 @@ const ItemSchema = Yup.object().shape({
   category: Yup.string().required(),
 });
 
-const ItemForm = ({ onSubmit = () => null }) => {
+const ItemForm = ({
+  initialValues = null,
+  redirectPath = "",
+  buttonText = "Submit",
+  onSubmit = () => null,
+}) => {
   const router = useRouter();
   const [disabled, setDisabled] = useState(false);
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(initialValues?.image ?? "");
 
-  const { image, ...initialItemValues } = {
+  const { image, ...initialItemValues } = initialValues ?? {
     image: "",
     title: "",
     description: "",
@@ -53,7 +59,9 @@ const ItemForm = ({ onSubmit = () => null }) => {
         await onSubmit({ image: imageUrl, ...values });
       }
       toast.success("Successfully submitted", { id: toastId });
-      router.push("/");
+      if (redirectPath) {
+        router.push(redirectPath);
+      }
     } catch (e) {
       toast.error("Unable to submit", { id: toastId });
       setDisabled(false);
@@ -113,7 +121,7 @@ const ItemForm = ({ onSubmit = () => null }) => {
                 disabled={disabled || !isValid}
                 className="bg-blue-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
               >
-                {isSubmitting ? "Submitting..." : "Submit"}
+                {isSubmitting ? "Submitting..." : buttonText}
               </button>
             </div>
           </Form>
