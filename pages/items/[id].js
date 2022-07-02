@@ -10,7 +10,6 @@ const PostedItem = (item = null) => {
       <div className="max-w-screen-lg mx-auto">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:space-x-4 space-y-4">
           <div>
-            
             <h1 className="text-2xl font-semibold truncate">
               {item?.title ?? ""}
             </h1>
@@ -20,11 +19,13 @@ const PostedItem = (item = null) => {
                 <span>{item?.location ?? ""} ·</span>
               </li>
               <li>
-                <span>{item?.category?.replaceAll("_", " ") ?? ""} ·</span>
+                <span>{item?.category?.replace("_", " ") ?? ""} ·</span>
               </li>
               <li>
                 {/* {console.log(moment(item?.createdAt ?? "").format('DD/MM/YYYY'))} */}
-                <span>{moment(item?.createdAt ?? "").format('DD/MM/YYYY')}</span>
+                <span>
+                  {moment(item?.createdAt ?? "").format("DD/MM/YYYY")}
+                </span>
               </li>
             </ol>
           </div>

@@ -2,13 +2,43 @@ import Layout from "@/components/Layout";
 import ItemForm from "@/components/ItemForm";
 import { PrismaClient } from "@prisma/client";
 import { getSession } from "next-auth/react";
+import axios from "axios";
 
 const prisma = new PrismaClient();
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  console.log(session);
+
+  const redirect = {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
+  //Check if user is logged in
+  if (!session) {
+    return redirect;
+  }
+  //Get user
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+    select: { items: true },
+  });
+  //Id in URL
+  const id = context.params.id;
+  const item = user?.items?.find((item) => item.id === id);
+  if (!item) {
+    return redirect;
+  }
+
+  return {
+    props: JSON.parse(JSON.stringify(item)),
+  };
 }
-const Edit = () => {
+
+const Edit = (item = null) => {
+  const handleOnSubmit = (data) => axios.patch(`/api/items/${item.id}`, data);
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">
@@ -17,7 +47,14 @@ const Edit = () => {
           Fill out the form below to update your item.
         </p>
         <div className="mt-8">
-          <ItemForm buttonText="Update Item" />
+          {item ? (
+            <ItemForm
+              initialValues={item}
+              buttonText="Update Item"
+              redirectPath={`/homes/${item.id}`}
+              onSubmit={handleOnSubmit}
+            />
+          ) : null}
         </div>
       </div>
     </Layout>

@@ -2,7 +2,7 @@ import { prisma } from "@prisma/client";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
-  if (req.method === "GET") {
+  if (req.method === "PATCH") {
     const session = await getSession({ req });
     //check if user has logged in
     if (!session) {
@@ -13,6 +13,7 @@ export default async function handler(req, res) {
       where: { email: session.user.email },
       select: { items: true },
     });
+
     //Check if logged in user is the owner of this item
     const { id } = req.query;
     if (!user?.items?.find((item) => item.id === id)) {

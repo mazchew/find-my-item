@@ -6,13 +6,15 @@ import classNames from "classnames";
 import { ArrowUpIcon } from "@heroicons/react/outline";
 
 const ImageUpload = ({
+  label = "Image",
+  initialImage = null,
   objectFit = "cover",
   accept = ".png, .jpg, .jpeg,",
   sizeLimit = 5000000,
   onChangePicture = () => null,
 }) => {
   const imageRef = useRef();
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState(initialImage);
   const [updatingImage, setUpdatingImage] = useState(false);
   const [imageError, setImageError] = useState(null);
 
@@ -58,7 +60,7 @@ const ImageUpload = ({
 
   return (
     <div className="flex flex-col space-y-2">
-      <label>Image</label>
+      <label>{label}</label>
       <button
         onClick={handleOnClickImage}
         disabled={updatingImage}
