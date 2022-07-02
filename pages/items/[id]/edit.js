@@ -1,6 +1,13 @@
 import Layout from "@/components/Layout";
 import ItemForm from "@/components/ItemForm";
+import { PrismaClient } from "@prisma/client";
+import { getSession } from "next-auth/react";
 
+const prisma = new PrismaClient();
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+}
 const Edit = () => {
   return (
     <Layout>
