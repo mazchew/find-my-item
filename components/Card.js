@@ -2,8 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
+import moment from "moment";
 
-const Card = ({ id = "", image = "", title = "", location = "" }) => (
+const Card = ({ id = "", image = "", title = "", location = "", createdAt = "" }) => (
   <Link href={`/items/${id}`}>
     <a className="block w-full">
       <div className="relative">
@@ -19,8 +20,9 @@ const Card = ({ id = "", image = "", title = "", location = "" }) => (
           ) : null}
         </div>
       </div>
-      <div className="mt-2 w-full text-gray-700 font-semibold leading-tight">
+      <div className="mt-2 w-full justify-between text-gray-700 font-semibold leading-tight">
         {title ?? ""}
+        <span className="order-last"> {moment(createdAt ?? "").fromNow()} </span>
       </div>
       <div className="inline-flex items-center space-x-1">
         <LocationMarkerIcon className="h-4 w-4" />
