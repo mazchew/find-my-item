@@ -33,7 +33,7 @@ const PostedItem = (item = null) => {
 
   const deleteItem = async () => {
     let toastId;
-    console.log("deleting");
+    console.log("deleting"); //this prints but error occurs past this
     try {
       toastId = toast.loading('Deleting...');
       setDeleting(true);
