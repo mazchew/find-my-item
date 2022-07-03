@@ -1,10 +1,8 @@
 import Layout from "@/components/Layout";
 import ItemForm from "@/components/ItemForm";
-import { PrismaClient } from "@prisma/client";
 import { getSession } from "next-auth/react";
 import axios from "axios";
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
@@ -51,7 +49,7 @@ const Edit = (item = null) => {
             <ItemForm
               initialValues={item}
               buttonText="Update Item"
-              redirectPath={`/homes/${item.id}`}
+              redirectPath={`/items/${item.id}`}
               onSubmit={handleOnSubmit}
             />
           ) : null}

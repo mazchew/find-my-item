@@ -1,4 +1,4 @@
-import { prisma } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { getSession } from "next-auth/react";
 
 export default async function handler(req, res) {
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     if (!session) {
       return res.status(401).json({ message: "Unauthorized." });
     }
-    //Retrive user data
+    //Retrieve user data
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
       select: { items: true },
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
           where: { id },
           data: req.body,
         });
-        res.status(200).json(home);
+        res.status(200).json(item);
       } catch (e) {
         res.status(500).json({ message: "Something went wrong." });
       }
