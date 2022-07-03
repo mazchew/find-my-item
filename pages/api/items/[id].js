@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { getSession } from "next-auth/react";
+import { supabase } from '@/lib/supabase';
 
 export default async function handler(req, res) {
   if (req.method === "PATCH") {
@@ -31,8 +32,21 @@ export default async function handler(req, res) {
         res.status(500).json({ message: "Something went wrong." });
       }
     }
+  } else if (req.method === "DELETE") {
+    try {
+      const item = await prisma.item.delete({
+        where: { id },
+      });
+      if (item.image) {
+        const path = item.image.split(`${process.env.SUPABASE_BUCKET}/`)?.[1];
+        await supabase.storage.from(process.env.SUPABASE_BUCKET).remove([path]);
+      }
+      res.status(200).json(item);
+    } catch (e) {
+      res.status(500).json({ message: 'Error' });
+    }
   } else {
-    res.setHeader("Allow", ["PATCH"]);
+    res.setHeader("Allow", ["PATCH", "DELETE"]);
     res
       .status(405)
       .json({ message: `HTTP method ${req.method} is not suppported.` });
