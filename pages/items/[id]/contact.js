@@ -5,7 +5,7 @@ import axios from "axios";
 // import { prisma } from '@/lib/prisma';
 
 const Contact = (item = null) => {
-//   const handleOnSubmit = (data) => axios.patch(`/api/items/${item.id}/contact`, data);
+//   const handleOnSubmit = (data) => axios.post(`/api/items/${item.id}/contact`, data);
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">
@@ -15,7 +15,11 @@ const Contact = (item = null) => {
         </p>
         <div className="mt-8">
         {item ? (
-            <ContactForm />
+            <ContactForm 
+              buttonText="Contact Poster"
+              redirectPath={`/items/${item.id}`}
+              onSubmit={handleOnSubmit}
+            />
         ) : null}
         </div>
       </div>
