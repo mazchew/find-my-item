@@ -65,13 +65,13 @@ const ContactForm = ({
                     </div>
 
                     <div className="flex justify-end">
-                    <button
-                        type="submit"
-                        disabled={disabled || !isValid}
-                        className="bg-blue-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
-                    >
-                        {isSubmitting ? "Submitting..." : buttonText}
-                    </button>
+                        <button
+                            type="submit"
+                            disabled={disabled || !isValid}
+                            className="bg-blue-600 text-white py-2 px-6 rounded-md focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50 hover:bg-blue-500 transition disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600"
+                        >
+                            {isSubmitting ? "Submitting..." : buttonText}
+                        </button>
                     </div>
                 </Form>
                 )}

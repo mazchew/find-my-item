@@ -89,21 +89,21 @@ const ItemForm = ({
                 name="title"
                 type="text"
                 label="Title"
-                placeholder="Lost item"
+                placeholder="Title of lost item"
                 disabled={disabled}
               />
               <Input
                 name="location"
                 type="text"
                 label="Location"
-                placeholder="Where was the item found?"
+                placeholder="Location where the item was found"
                 disabled={disabled}
               />
               <Input
                 name="description"
                 type="textarea"
                 label="Description"
-                placeholder="Item description"
+                placeholder="Description of the item found"
                 rows={4}
                 disabled={disabled}
               />
