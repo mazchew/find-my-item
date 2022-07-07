@@ -33,7 +33,7 @@ const PostedItem = (item = null) => {
 
   const deleteItem = async () => {
     let toastId;
-    console.log("deleting"); //this prints but error occurs past this
+    console.log("deleting");
     try {
       toastId = toast.loading('Deleting...');
       setDeleting(true);
@@ -66,7 +66,6 @@ const PostedItem = (item = null) => {
                 <span>{item?.category?.replace("_", " ") ?? ""} ·</span>
               </li>
               <li>
-                {/* {console.log(moment(item?.createdAt ?? "").format('DD/MM/YYYY'))} */}
                 <span>
                   {moment(item?.createdAt ?? "").format("DD/MM/YYYY")}
                 </span>
