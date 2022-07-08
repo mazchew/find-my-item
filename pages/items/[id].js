@@ -27,7 +27,7 @@ const PostedItem = (item = null) => {
         }
       }
     })();
-  }, [session?.user, item?.id]);
+  }, [session?.user]);
 
   const deleteItem = async () => {
     let toastId;
