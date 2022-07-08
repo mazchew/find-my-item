@@ -48,15 +48,9 @@ export async function getServerSideProps(context) {
 }
 
 
-<<<<<<< HEAD
 const Contact = (props) => {
 
   const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.email });
-=======
-const Contact = (item = null) => {
-  const handleOnSubmit = (data) =>
-    axios.post(`/api/items/${item.id}/contact`, data);
->>>>>>> a376f9b53e63a4c6d3ac21e5ba113f56a9c11b66
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">
@@ -66,13 +60,8 @@ const Contact = (item = null) => {
           your Email and the Message below.
         </p>
         <div className="mt-8">
-<<<<<<< HEAD
         {props ? (
             <ContactForm 
-=======
-          {item ? (
-            <ContactForm
->>>>>>> a376f9b53e63a4c6d3ac21e5ba113f56a9c11b66
               buttonText="Contact Poster"
               redirectPath={`/items/${props.itemProps.id}`}
               onSubmit={handleOnSubmit}
