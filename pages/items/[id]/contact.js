@@ -18,25 +18,16 @@ export async function getServerSideProps(context) {
   if (!session) {
     return redirect;
   }
-  //Get user
-  const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
-    select: { items: true },
-  });
-  //Id in URL
-  const id = context.params.id;
-  const item = user?.items?.find((item) => item.id === id);
-  if (!item) {
-    return redirect;
-  }
 
-  const poster = await prisma.user.findUnique({
-    where: {
-      id: item.ownerId
-    },
-    select: {
-      email: true
-    },
+  const itemID = context.params.id;
+
+  const poster = await prisma.item.findUnique({
+    where: { id: itemID },
+    select: { owner: true }
+  })
+
+  const item = await prisma.item.findUnique({
+    where: { id: itemID }
   })
 
   const itemProps = JSON.parse(JSON.stringify(item));
@@ -49,6 +40,7 @@ export async function getServerSideProps(context) {
 
 
 const Contact = (props) => {
+  console.log(props);
 
   const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.email });
   return (
