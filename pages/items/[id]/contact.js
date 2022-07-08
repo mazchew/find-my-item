@@ -48,24 +48,36 @@ export async function getServerSideProps(context) {
 }
 
 
+<<<<<<< HEAD
 const Contact = (props) => {
 
   const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.email });
+=======
+const Contact = (item = null) => {
+  const handleOnSubmit = (data) =>
+    axios.post(`/api/items/${item.id}/contact`, data);
+>>>>>>> a376f9b53e63a4c6d3ac21e5ba113f56a9c11b66
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">
         <h1 className="text-xl font-medium text-gray-800">Contact Form</h1>
         <p className="text-grey-500">
-            Fill in the form below to contact the poster.
+          Fill in the form below to contact the poster. The poster will receive
+          your Email and the Message below.
         </p>
         <div className="mt-8">
+<<<<<<< HEAD
         {props ? (
             <ContactForm 
+=======
+          {item ? (
+            <ContactForm
+>>>>>>> a376f9b53e63a4c6d3ac21e5ba113f56a9c11b66
               buttonText="Contact Poster"
               redirectPath={`/items/${props.itemProps.id}`}
               onSubmit={handleOnSubmit}
             />
-        ) : null}
+          ) : null}
         </div>
       </div>
     </Layout>
