@@ -21,12 +21,13 @@ const PostedItem = (item = null) => {
       if (session?.user) {
         try {
           const owner = await axios.get(`/api/items/${item.id}/owner`);
-          setIsOwner(owner?.id === session.user.id);
+          setIsOwner(owner?.email === session?.user?.email);
         } catch (e) {
           setIsOwner(false);
         }
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session?.user]);
 
   const deleteItem = async () => {
@@ -42,7 +43,7 @@ const PostedItem = (item = null) => {
       router.push("/items");
     } catch (e) {
       console.log(e);
-      toast.error("Unable to delete home", { id: toastId });
+      toast.error("Unable to delete item", { id: toastId });
       setDeleting(false);
     }
   };
