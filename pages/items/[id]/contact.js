@@ -6,7 +6,6 @@ import { prisma } from '@/lib/prisma';
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  // console.log(session);
 
   const redirect = {
     redirect: {
@@ -42,7 +41,7 @@ export async function getServerSideProps(context) {
 const Contact = (props) => {
   console.log(props);
 
-  const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.email });
+  const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.owner.email });
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">
