@@ -4,6 +4,38 @@ import { getSession } from "next-auth/react";
 import axios from "axios";
 // import { prisma } from '@/lib/prisma';
 
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  console.log(session);
+
+  const redirect = {
+    redirect: {
+      destination: "/",
+      permanent: false,
+    },
+  };
+  //Check if user is logged in
+  if (!session) {
+    return redirect;
+  }
+  //Get user
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+    select: { items: true },
+  });
+  //Id in URL
+  const id = context.params.id;
+  const item = user?.items?.find((item) => item.id === id);
+  if (!item) {
+    return redirect;
+  }
+
+  return {
+    props: JSON.parse(JSON.stringify(item)),
+  };
+}
+
+
 const Contact = (item = null) => {
   const handleOnSubmit = (data) => axios.post(`/api/items/${item.id}/contact`, data);
   return (
