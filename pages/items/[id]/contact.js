@@ -2,11 +2,11 @@ import Layout from "@/components/Layout";
 import ContactForm from "@/components/ContactForm";
 import { getSession } from "next-auth/react";
 import axios from "axios";
-// import { prisma } from '@/lib/prisma';
+import { prisma } from '@/lib/prisma';
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
-  console.log(session);
+  // console.log(session);
 
   const redirect = {
     redirect: {
@@ -30,14 +30,27 @@ export async function getServerSideProps(context) {
     return redirect;
   }
 
+  const poster = await prisma.user.findUnique({
+    where: {
+      id: item.ownerId
+    },
+    select: {
+      email: true
+    },
+  })
+
+  const itemProps = JSON.parse(JSON.stringify(item));
+  const posterProps = JSON.parse(JSON.stringify(poster));
+
   return {
-    props: JSON.parse(JSON.stringify(item)),
+    props: { itemProps, posterProps },
   };
 }
 
 
-const Contact = (item = null) => {
-  const handleOnSubmit = (data) => axios.post(`/api/items/${item.id}/contact`, data);
+const Contact = (props) => {
+
+  const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.email });
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">
@@ -46,10 +59,10 @@ const Contact = (item = null) => {
             Fill in the form below to contact the poster.
         </p>
         <div className="mt-8">
-        {item ? (
+        {props ? (
             <ContactForm 
               buttonText="Contact Poster"
-              redirectPath={`/items/${item.id}`}
+              redirectPath={`/items/${props.itemProps.id}`}
               onSubmit={handleOnSubmit}
             />
         ) : null}

@@ -166,7 +166,7 @@
 
                               <div style="line-height: 160%; text-align: center; word-wrap: break-word;">
                                 <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 22px; line-height: 35.2px; font-family: 'Source Sans Pro', sans-serif;">Hi 👋,</span></p>
-                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 18px; line-height: 28.8px; font-family: 'Source Sans Pro', sans-serif;">A user has contacted you regarding this item/notice:<br /><br />Please contact them via the user's email provided below:</span></p>
+                                <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 18px; line-height: 28.8px; font-family: 'Source Sans Pro', sans-serif;">A user has contacted you regarding this item/notice: {{ message }} <br /><br /><br /></span></p>
                               </div>
 
                             </td>
@@ -205,7 +205,7 @@
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
                               <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: 'Source Sans Pro', sans-serif;">User Email: </span></p>
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-family: 'Source Sans Pro', sans-serif; font-size: 18px; line-height: 25.2px;">Please contact them via their email address below.</span></p>
                               </div>
 
                             </td>
@@ -231,9 +231,48 @@
               <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
                 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
 
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
                 <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                  <div style="background-color: #ffffff;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                    <!--[if (!mso)&(!IE)]><!-->
+                    <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                      <!--<![endif]-->
+
+                      <table style="font-family:'Cabin',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
+
+                              <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
+                                <p style="font-size: 14px; line-height: 140%; text-align: center;"><span style="font-size: 16px; line-height: 22.4px; font-family: 'Source Sans Pro', sans-serif;">User Email: {{ userEmail }}</span></p>
+                              </div>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!--[if (!mso)&(!IE)]><!-->
+                    </div>
+                    <!--<![endif]-->
+                  </div>
+                </div>
+                <!--[if (mso)|(IE)]></td><![endif]-->
+                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="u-row-container" style="padding: 0px;background-color: transparent">
+            <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+              <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
+                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+
+                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+                <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                  <div style="background-color: #ffffff;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
                     <!--[if (!mso)&(!IE)]><!-->
                     <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
                       <!--<![endif]-->
@@ -271,9 +310,9 @@
               <div style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
                 <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #003399;"><![endif]-->
 
-                <!--[if (mso)|(IE)]><td align="center" width="600" style="width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #ecf0f1;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
                 <div class="u-col u-col-100" style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
-                  <div style="width: 100% !important;">
+                  <div style="background-color: #ecf0f1;width: 100% !important;">
                     <!--[if (!mso)&(!IE)]><!-->
                     <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
                       <!--<![endif]-->
@@ -284,8 +323,8 @@
                             <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Cabin',sans-serif;" align="left">
 
                               <div style="color: #fafafa; line-height: 180%; text-align: center; word-wrap: break-word;">
-                                <p dir="ltr" style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px; font-family: 'Source Sans Pro', sans-serif;">© 2022 FindMyItem</span></p>
-                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px; font-family: 'Source Sans Pro', sans-serif;">All Rights Reserved</span></p>
+                                <p dir="ltr" style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px; font-family: 'Source Sans Pro', sans-serif; color: #000000;">© 2022 FindMyItem</span></p>
+                                <p style="font-size: 14px; line-height: 180%;"><span style="font-size: 16px; line-height: 28.8px; font-family: 'Source Sans Pro', sans-serif; color: #000000;">All Rights Reserved</span></p>
                               </div>
 
                             </td>

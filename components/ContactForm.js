@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { Formik, Form, yupToFormErrors } from "formik";
 import Input from "./Input";
-import ImageUpload from "./ImageUpload";
+// import { prisma } from "@/lib/prisma";
 
 const ContactSchema = Yup.object().shape({
     message: Yup.string().trim().max(200).required(),
