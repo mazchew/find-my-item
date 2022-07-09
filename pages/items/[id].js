@@ -21,7 +21,7 @@ const PostedItem = (item = null) => {
       if (session?.user) {
         try {
           const owner = await axios.get(`/api/items/${item.id}/owner`);
-          setIsOwner(owner?.email === session?.user?.email);
+          setIsOwner(owner?.data?.email === session?.user?.email);
         } catch (e) {
           setIsOwner(false);
         }
