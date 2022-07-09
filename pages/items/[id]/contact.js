@@ -29,17 +29,10 @@ export async function getServerSideProps(context) {
     where: { id: itemID }
   })
 
-  const itemURL = process.env.NEXTAUTH_URL + "/items/" + itemID;
-
-  // console.log(itemURL);
-
+  const itemURL = process.env.BASEURL + "/items/" + itemID;
   const itemProps = JSON.parse(JSON.stringify(item));
   const posterProps = JSON.parse(JSON.stringify(poster));
   const urlProps = JSON.parse(JSON.stringify(itemURL));
-
-  // console.log(itemProps);
-  // console.log(posterProps);
-  // console.log(urlProps);
 
   return {
     props: { itemProps, posterProps, urlProps },
@@ -47,7 +40,6 @@ export async function getServerSideProps(context) {
 }
 
 const Contact = (props) => {
-  // console.log(props);
 
   const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.owner.email, itemURL: props.urlProps });
   return (
