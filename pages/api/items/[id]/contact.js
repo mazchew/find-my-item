@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const userEmail = session.user.email;
     const message = req.body.message;
     const posterEmail = req.body.posterEmail;
-    
+    const itemURL = req.body.itemURL;
 
     if (req.method === "POST") {
 
@@ -44,6 +44,7 @@ export default async function handler(req, res) {
                 userEmail: userEmail,
                 message: message,
                 email: posterEmail,
+                itemURL: itemURL
                 }),
             });
             res.status(200).json({ message: "Successful" });
