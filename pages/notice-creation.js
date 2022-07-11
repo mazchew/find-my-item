@@ -41,4 +41,4 @@ const CreateNotice = () => {
   );
 };
 
-export default CreateItem;
+export default CreateNotice;
