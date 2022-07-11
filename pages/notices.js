@@ -18,7 +18,13 @@ export async function getServerSideProps(context) {
   }
 
   // Get all items from the authenticated user
-  const items = await prisma.item.findMany({
+//   const items = await prisma.item.findMany({
+//     where: { owner: { email: session.user.email } },
+//     orderBy: { createdAt: 'desc' },
+//   });
+
+  // Get all notices from the authenticated user
+  const notices = await prisma.notice.findMany({
     where: { owner: { email: session.user.email } },
     orderBy: { createdAt: 'desc' },
   });
@@ -26,19 +32,19 @@ export async function getServerSideProps(context) {
   // Pass the data to the component
   return {
     props: {
-      items: JSON.parse(JSON.stringify(items)),
+      notices: JSON.parse(JSON.stringify(notices)),
     },
   };
 }
-const Items = ({ items = [] }) => {
+const Notices = ({ notices = [] }) => {
   return (
     <Layout>
-      <h1 className="text-xl font-medium text-gray-800">Your posted items</h1>
+      <h1 className="text-xl font-medium text-gray-800">Your posted notices</h1>
       <p className="text-gray-500">
-        Manage and update your posted items
+        Manage and update your posted notices
       </p>
       <div className="mt-8">
-        <Grid items={items} />
+        <Grid notices={notices} />
       </div>
     </Layout>
   );
