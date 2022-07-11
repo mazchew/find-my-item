@@ -50,4 +50,4 @@ const Notices = ({ notices = [] }) => {
   );
 };
 
-export default Items;
+export default Notices;
