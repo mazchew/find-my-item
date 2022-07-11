@@ -138,7 +138,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const notices = await prisma.notice.findUnique({
+  const notice = await prisma.notice.findUnique({
     where: { id: params.id },
   });
 
