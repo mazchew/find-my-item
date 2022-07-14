@@ -144,7 +144,7 @@ export async function getStaticProps({ params }) {
 
   if (notice) {
     return {
-      props: JSON.parse(JSON.stringify(notices)),
+      props: JSON.parse(JSON.stringify(notice)),
     };
   }
 
