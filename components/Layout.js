@@ -19,21 +19,21 @@ const menuItems = [
     icon: PlusIcon,
     href: "/item-creation",
   },
-  // {
-  //   label: 'Post A Notice',
-  //   icon: PlusIcon,
-  //   href: '/notice-listing',
-  // },
+  {
+    label: "Post A Notice",
+    icon: PlusIcon,
+    href: "/notice-listing",
+  },
   {
     label: "My Posted Items",
     icon: CollectionIcon,
     href: "/items",
   },
-  // {
-  //   label: 'My Posted Notices',
-  //   icon: ClipboardListIcon,
-  //   href: '/notices',
-  // },
+  {
+    label: "My Posted Notices",
+    icon: ClipboardListIcon,
+    href: "/notices",
+  },
   {
     label: "Sign Out",
     icon: LogoutIcon,
@@ -73,15 +73,19 @@ const Layout = ({ children }) => {
                 </Link> */}
                 <button
                   onClick={() => {
-                    if (session?.user) {
-                      router.push("/item-creation");
-                    } else {
-                      router.push('/signin')
-                    }
+                    router.push("/");
                   }}
-                  className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md"
+                  className="hidden sm:block bg-blue-600 hover:bg-blue-500 text-white transition px-3 py-1 rounded-md"
                 >
-                  Post an item
+                  Gallery
+                </button>
+                <button
+                  onClick={() => {
+                    router.push("/noticeboard");
+                  }}
+                  className="hidden sm:block bg-red-600 hover:bg-red-500 text-white transition px-3 py-1 rounded-md"
+                >
+                  NoticeBoard
                 </button>
 
                 {isLoadingUser ? (

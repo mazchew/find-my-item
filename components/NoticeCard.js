@@ -15,28 +15,40 @@ const NoticeCard = ({
 }) => (
   <Link href={`/notices/${id}`}>
     <a className="block w-full">
-        <div className="items-center justify-center items-center">
-                <div>
-                    <div className="max-w-xs h-64 flex flex-col justify-between bg-white rounded-lg border border-gray-400 mb-6 py-5 px-4">
-                        <div>
-                            <div>
-                                <span tabindex="0" className="focus:outline-none text-gray-800 font-bold mb-3">{title ?? ""}</span>
-                                <span className=""> location </span>
-                            </div>
-                            
-                            <p tabindex="0" className="focus:outline-none text-gray-800 text-sm break-words">{description ?? ""}</p>
-                        </div>
-                        <div> 
-                            <div className="flex items-center justify-between text-gray-800">
-                                <p tabindex="0" class="focus:outline-none text-sm">{moment(createdAt ?? "").fromNow()}</p>
-                                <button className="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover: bg-gray-700">
-                                    <ChevronRightIcon className="w-4 h-4"/>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div className="items-center justify-center items-center">
+        <div>
+          <div className="max-w-xs h-64 flex flex-col justify-between bg-white rounded-lg border border-gray-400 mb-6 py-5 px-4">
+            <div>
+              <div className="flex">
+                <span
+                  tabIndex="0"
+                  className="focus:outline-none text-gray-800 font-bold mb-3"
+                >
+                  {title ?? ""}
+                </span>
+                <span className="ml-auto"> location </span>
+              </div>
+
+              <p
+                tabIndex="0"
+                className="focus:outline-none text-gray-800 text-sm break-words"
+              >
+                {description ?? ""}
+              </p>
             </div>
+            <div>
+              <div className="flex items-center justify-between text-gray-800">
+                <p tabIndex="0" className="focus:outline-none text-sm">
+                  {moment(createdAt ?? "").fromNow()}
+                </p>
+                <button className="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover: bg-gray-700">
+                  <ChevronRightIcon className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </a>
   </Link>
 );
