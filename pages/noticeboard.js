@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import Grid from "@/components/Grid";
+import NoticeGrid from "@/components/NoticeGrid";
 import { prisma } from "@/lib/prisma";
 
 // get data from database instead of json file
@@ -23,7 +23,7 @@ export default function Noticeboard({ notices = [] }) {
         <p className="text-gray-500">Check out all posted notices</p>
       </div>
       <div className="mt-8">
-        <Grid notices={notices} />
+        <NoticeGrid notices={notices} />
       </div>
     </Layout>
   );

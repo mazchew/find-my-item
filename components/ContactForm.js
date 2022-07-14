@@ -9,7 +9,7 @@ import Input from "./Input";
 // import { prisma } from "@/lib/prisma";
 
 const ContactSchema = Yup.object().shape({
-    message: Yup.string().trim().max(200).matches(/^[\w\-\s]+$/, "Invalid characters").required(),
+    message: Yup.string().trim().max(200).matches(/^[\.a-zA-Z0-9,!? ]*$/, "Invalid characters").required(),
 });
 
 const ContactForm = ({

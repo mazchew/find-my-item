@@ -1,6 +1,6 @@
 import { getSession } from 'next-auth/react';
 import Layout from '@/components/Layout';
-import Grid from '@/components/Grid';
+import NoticeGrid from '@/components/NoticeGrid';
 import { prisma } from '@/lib/prisma';
 
 export async function getServerSideProps(context) {
@@ -44,7 +44,7 @@ const Notices = ({ notices = [] }) => {
         Manage and update your posted notices
       </p>
       <div className="mt-8">
-        <Grid notices={notices} />
+        <NoticeGrid items={notices} />
       </div>
     </Layout>
   );
