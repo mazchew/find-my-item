@@ -22,7 +22,7 @@ const menuItems = [
   {
     label: "Post A Notice",
     icon: PlusIcon,
-    href: "/notice-listing",
+    href: "/notice-creation",
   },
   {
     label: "My Posted Items",

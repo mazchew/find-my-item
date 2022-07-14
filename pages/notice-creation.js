@@ -34,7 +34,7 @@ const CreateNotice = () => {
           Fill in the form below to post a new notice.
         </p>
         <div className="mt-8">
-          <ItemForm onSubmit={createNotice} redirectPath="/" />
+          <ItemForm onSubmit={createNotice} redirectPath="/noticeboard" />
         </div>
       </div>
     </Layout>
