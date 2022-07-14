@@ -24,7 +24,7 @@ const NoticeCard = ({
             >
               {title ?? ""}
             </span>
-            <span className="ml-auto"> location </span>
+            <span className="ml-auto"> {location} </span>
           </div>
           <p
             tabIndex="0"
