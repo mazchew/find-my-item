@@ -22,14 +22,14 @@ export async function getServerSideProps(context) {
 
   const poster = await prisma.item.findUnique({
     where: { id: itemID },
-    select: { owner: true }
-  })
+    select: { owner: true },
+  });
 
   const item = await prisma.item.findUnique({
-    where: { id: itemID }
-  })
+    where: { id: itemID },
+  });
 
-  const itemURL = process.env.BASEURL + "/items/" + itemID;
+  const itemURL = process.env.BASEURL + "items/" + itemID;
   const itemProps = JSON.parse(JSON.stringify(item));
   const posterProps = JSON.parse(JSON.stringify(poster));
   const urlProps = JSON.parse(JSON.stringify(itemURL));
@@ -40,8 +40,12 @@ export async function getServerSideProps(context) {
 }
 
 const Contact = (props) => {
-
-  const handleOnSubmit = (data) => axios.post(`/api/items/${props.itemProps.id}/contact`, { ...data, posterEmail: props.posterProps.owner.email, itemURL: props.urlProps });
+  const handleOnSubmit = (data) =>
+    axios.post(`/api/items/${props.itemProps.id}/contact`, {
+      ...data,
+      posterEmail: props.posterProps.owner.email,
+      itemURL: props.urlProps,
+    });
   return (
     <Layout>
       <div className="max-w-screen-sm mx-auto">

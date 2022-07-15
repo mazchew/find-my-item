@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
     where: { id: noticeID },
   });
 
-  const noticeURL = process.env.BASEURL + "/notices/" + noticeID;
+  const noticeURL = process.env.BASEURL + "notices/" + noticeID;
   const noticeProps = JSON.parse(JSON.stringify(notice));
   const posterProps = JSON.parse(JSON.stringify(poster));
   const urlProps = JSON.parse(JSON.stringify(noticeURL));
