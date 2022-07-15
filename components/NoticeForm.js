@@ -13,11 +13,11 @@ const NoticeSchema = Yup.object().shape({
     .required(),
   location: Yup.string()
     .trim()
-    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:;]*$/, "Invalid characters")
+    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:; ]*$/, "Invalid characters")
     .required(),
   description: Yup.string()
     .trim()
-    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:;]*$/, "Invalid characters")
+    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:; ]*$/, "Invalid characters")
     .required(),
   category: Yup.string().required(),
 });
