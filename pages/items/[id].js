@@ -124,20 +124,20 @@ const PostedItem = (item = null) => {
   );
 };
 
-export async function getStaticPaths() {
-  const items = await prisma.item.findMany({
-    select: { id: true },
-  });
+// export async function getStaticPaths() {
+//   const items = await prisma.item.findMany({
+//     select: { id: true },
+//   });
 
-  return {
-    paths: items.map((item) => ({
-      params: { id: item.id },
-    })),
-    fallback: true,
-  };
-}
+//   return {
+//     paths: items.map((item) => ({
+//       params: { id: item.id },
+//     })),
+//     fallback: true,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const item = await prisma.item.findUnique({
     where: { id: params.id },
   });

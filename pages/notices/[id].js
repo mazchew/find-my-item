@@ -113,20 +113,20 @@ const PostedNotice = (notice = null) => {
   );
 };
 
-export async function getStaticPaths() {
-  const notices = await prisma.notice.findMany({
-    select: { id: true },
-  });
+// export async function getStaticPaths() {
+//   const notices = await prisma.notice.findMany({
+//     select: { id: true },
+//   });
 
-  return {
-    paths: notices.map((notice) => ({
-      params: { id: notice.id },
-    })),
-    fallback: true,
-  };
-}
+//   return {
+//     paths: notices.map((notice) => ({
+//       params: { id: notice.id },
+//     })),
+//     fallback: true,
+//   };
+// }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const notice = await prisma.notice.findUnique({
     where: { id: params.id },
   });
