@@ -50,7 +50,6 @@ model Item {
 
 model Notice {
   id          String   @id @default(cuid())
-  image       String
   title       String
   description String
   location    String

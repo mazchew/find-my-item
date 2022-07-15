@@ -14,7 +14,7 @@ const NoticeCard = ({
   createdAt = "",
 }) => (
   <Link href={`/notices/${id}`}>
-    <a className="block w-full">
+    <div className="block w-full">
       <div className="items-center justify-center">
         <div className="max-w-xs h-64 flex flex-col justify-between bg-white rounded-lg border border-gray-400 mb-6 py-5 px-4">
           <div className="flex flex-col gap-1.5">
@@ -23,7 +23,7 @@ const NoticeCard = ({
             </span>
             <div className="inline-flex items-center">
               <LocationMarkerIcon className="h-4 w-4 flex-shrink-0" />
-              <span className="truncate">{location}</span>
+              <span className="ml-1 truncate">{location}</span>
             </div>
 
             <p className="focus:outline-none text-gray-800 text-sm line-clamp-5 ">
@@ -35,14 +35,16 @@ const NoticeCard = ({
               <p className="focus:outline-none text-sm">
                 {moment(createdAt ?? "").fromNow()}
               </p>
-              <button className="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:">
-                <ChevronRightIcon className="w-4 h-4" />
+              <button className="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center hover:bg-gray-600">
+                <a>
+                  <ChevronRightIcon className="w-4 h-4" />
+                </a>
               </button>
             </div>
           </div>
         </div>
       </div>
-    </a>
+    </div>
   </Link>
 );
 

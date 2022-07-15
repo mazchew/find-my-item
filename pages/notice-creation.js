@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import ItemForm from "@/components/ItemForm";
+import NoticeForm from "@/components/NoticeForm";
 import axios from "axios";
 import { getSession } from "next-auth/react";
 
@@ -34,7 +34,7 @@ const CreateNotice = () => {
           Fill in the form below to post a new notice.
         </p>
         <div className="mt-8">
-          <ItemForm onSubmit={createNotice} redirectPath="/noticeboard" />
+          <NoticeForm onSubmit={createNotice} redirectPath="/noticeboard" />
         </div>
       </div>
     </Layout>

@@ -75,7 +75,7 @@ const Layout = ({ children }) => {
                   onClick={() => {
                     router.push("/");
                   }}
-                  className="hidden sm:block bg-blue-600 hover:bg-blue-500 text-white transition px-3 py-1 rounded-md"
+                  className="hidden sm:block hover:bg-gray-200  transition px-3 py-1 rounded-md"
                 >
                   Gallery
                 </button>
@@ -83,7 +83,7 @@ const Layout = ({ children }) => {
                   onClick={() => {
                     router.push("/noticeboard");
                   }}
-                  className="hidden sm:block bg-red-600 hover:bg-red-500 text-white transition px-3 py-1 rounded-md"
+                  className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md"
                 >
                   NoticeBoard
                 </button>
