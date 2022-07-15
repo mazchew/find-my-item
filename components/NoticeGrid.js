@@ -11,7 +11,7 @@ export default function NoticeGrid({ notices = [] }) {
       <span>Unfortunately, there is nothing to display yet.</span>
     </p>
   ) : (
-    <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+    <div className="grid place-content-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
       {notices.map((notice) => (
         <NoticeCard key={notice.id} {...notice} />
       ))}

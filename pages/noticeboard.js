@@ -5,8 +5,10 @@ import { prisma } from "@/lib/prisma";
 // get data from database instead of json file
 export async function getServerSideProps() {
   // get items
-//   const items = await prisma.item.findMany({ orderBy: { createdAt: "desc" } });
-  const notices = await prisma.notice.findMany({ orderBy: { createdAt: "desc" } });
+  //   const items = await prisma.item.findMany({ orderBy: { createdAt: "desc" } });
+  const notices = await prisma.notice.findMany({
+    orderBy: { createdAt: "desc" },
+  });
 
   return {
     props: {
