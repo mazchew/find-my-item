@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import PropTypes from "prop-types";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 import { ChevronRightIcon } from "@heroicons/react/outline";

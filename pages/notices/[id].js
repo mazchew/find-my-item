@@ -107,18 +107,7 @@ const PostedNotice = (notice = null) => {
           </div>
         </div>
 
-        <div className="mt-6 relative aspect-w-9 aspect-h-9 bg-gray-200 max-h-8 rounded-lg shadow-md overflow-hidden">
-          {notice?.image ? (
-            <Image
-              src={notice.image}
-              alt={notice.title}
-              layout="fill"
-              objectFit="cover"
-            />
-          ) : null}
-        </div>
-
-        <p className="mt-8 text-lg">{notice?.description ?? ""}</p>
+        <p className="mt-14 text-lg">{notice?.description ?? ""}</p>
       </div>
     </Layout>
   );
