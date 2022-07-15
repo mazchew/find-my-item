@@ -10,34 +10,53 @@ import {
   LogoutIcon,
   PlusIcon,
   UserIcon,
+  PhotographIcon,
+  InformationCircleIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
 const menuItems = [
   {
+    label: "Gallery",
+    icon: PhotographIcon,
+    href: "/",
+    hide: true,
+  },
+  {
+    label: "NoticeBoard",
+    icon: InformationCircleIcon,
+    href: "/item-creation",
+    hide: true,
+  },
+  {
     label: "Post An Item",
     icon: PlusIcon,
     href: "/item-creation",
+    hide: false,
   },
   {
     label: "Post A Notice",
     icon: PlusIcon,
     href: "/notice-creation",
+    hide: false,
   },
   {
     label: "My Posted Items",
     icon: CollectionIcon,
     href: "/items",
+    hide: false,
   },
   {
     label: "My Posted Notices",
     icon: ClipboardListIcon,
     href: "/notices",
+    hide: false,
   },
   {
     label: "Sign Out",
     icon: LogoutIcon,
     onClick: signOut,
+    hide: false,
   },
 ];
 
@@ -107,7 +126,7 @@ const Layout = ({ children }) => {
 
                       <div className="py-2">
                         {menuItems.map(
-                          ({ label, href, onClick, icon: Icon }) => (
+                          ({ label, href, onClick, icon: Icon, hide }) => (
                             <div
                               key={label}
                               className="px-2 last:border-t last:pt-2 last:mt-2"
@@ -115,7 +134,11 @@ const Layout = ({ children }) => {
                               <Menu.Item>
                                 {href ? (
                                   <Link href={href}>
-                                    <a className="flex items-center space-x-2 py-2 px-4 rounded-md hover:bg-gray-100">
+                                    <a
+                                      className={`${
+                                        hide ? "sm:hidden" : ""
+                                      } flex items-center space-x-2 py-2 px-4 rounded-md hover:bg-gray-100`}
+                                    >
                                       <Icon className="w-5 h-5 shrink-0 text-gray-500" />
                                       <span>{label}</span>
                                     </a>
