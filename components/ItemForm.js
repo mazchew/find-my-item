@@ -10,9 +10,18 @@ import ImageUpload from "./ImageUpload";
 import { redirect } from "next/dist/server/api-utils";
 
 const ItemSchema = Yup.object().shape({
-  title: Yup.string().trim().matches(/^[\.a-zA-Z0-9,!? ]*$/, "Invalid characters").required(),
-  location: Yup.string().trim().matches(/^[\.a-zA-Z0-9,!? ]*$/, "Invalid characters").required(),
-  description: Yup.string().trim().matches(/^[\.a-zA-Z0-9,!? ]*$/, "Invalid characters").required(),
+  title: Yup.string()
+    .trim()
+    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:; ]*$/, "Invalid characters")
+    .required(),
+  location: Yup.string()
+    .trim()
+    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:; ]*$/, "Invalid characters")
+    .required(),
+  description: Yup.string()
+    .trim()
+    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:; ]*$/, "Invalid characters")
+    .required(),
   category: Yup.string().required(),
 });
 
