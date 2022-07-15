@@ -25,7 +25,7 @@ const menuItems = [
   {
     label: "NoticeBoard",
     icon: InformationCircleIcon,
-    href: "/item-creation",
+    href: "/noticeboard",
     hide: true,
   },
   {
