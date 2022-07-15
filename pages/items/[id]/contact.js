@@ -29,7 +29,7 @@ export async function getServerSideProps(context) {
     where: { id: itemID },
   });
 
-  const itemURL = process.env.BASEURL + "items/" + itemID;
+  const itemURL = process.env.VERCEL_URL + "items/" + itemID;
   const itemProps = JSON.parse(JSON.stringify(item));
   const posterProps = JSON.parse(JSON.stringify(poster));
   const urlProps = JSON.parse(JSON.stringify(itemURL));
