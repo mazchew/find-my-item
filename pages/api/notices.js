@@ -10,12 +10,12 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const { image, title, description, location, category } = req.body;
+      const { image = "", title, description, location, category } = req.body;
 
       const user = await prisma.user.findUnique({
         where: { email: session.user.email },
       });
-      
+
       const notice = await prisma.notice.create({
         data: {
           image,
