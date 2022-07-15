@@ -15,7 +15,7 @@ const PostedItem = (item = null) => {
   const { data: session } = useSession();
   const [isOwner, setIsOwner] = useState(false);
   const [deleting, setDeleting] = useState(false);
-
+  console.log(item);
   useEffect(() => {
     (async () => {
       if (session?.user) {
