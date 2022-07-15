@@ -10,7 +10,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const { image = "", title, description, location, category } = req.body;
+      const { title, description, location, category } = req.body;
 
       const user = await prisma.user.findUnique({
         where: { email: session.user.email },
@@ -18,7 +18,6 @@ export default async function handler(req, res) {
 
       const notice = await prisma.notice.create({
         data: {
-          image,
           title,
           description,
           location,
