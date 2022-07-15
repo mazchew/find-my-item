@@ -141,7 +141,7 @@ export async function getStaticProps({ params }) {
   const item = await prisma.item.findUnique({
     where: { id: params.id },
   });
-
+  console.log(item);
   if (item) {
     return {
       props: JSON.parse(JSON.stringify(item)),
