@@ -91,19 +91,20 @@ const PostedNotice = (notice = null) => {
                   {deleting ? "Deleting..." : "Delete"}
                 </button>
               </div>
-            ) : null}
-            <button
-              onClick={() => {
-                if (session?.user) {
-                  router.push(`/notices/${notice.id}/contact`);
-                } else {
-                  router.push("/signin");
-                }
-              }}
-              className="ml-4 px-4 py-1.5 rounded-md bg-blue-600 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white transition"
-            >
-              Contact
-            </button>
+            ) : (
+              <button
+                onClick={() => {
+                  if (session?.user) {
+                    router.push(`/notices/${notice.id}/contact`);
+                  } else {
+                    router.push("/signin");
+                  }
+                }}
+                className="ml-4 px-4 py-1.5 rounded-md bg-blue-600 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white transition"
+              >
+                Contact
+              </button>
+            )}
           </div>
         </div>
 
