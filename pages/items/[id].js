@@ -15,7 +15,6 @@ const PostedItem = (item = null) => {
   const { data: session } = useSession();
   const [isOwner, setIsOwner] = useState(false);
   const [deleting, setDeleting] = useState(false);
-  console.log(item);
   useEffect(() => {
     (async () => {
       if (session?.user) {
@@ -141,7 +140,6 @@ export async function getServerSideProps({ params }) {
   const item = await prisma.item.findUnique({
     where: { id: params.id },
   });
-  console.log(item);
   if (item) {
     return {
       props: JSON.parse(JSON.stringify(item)),
