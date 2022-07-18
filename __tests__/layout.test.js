@@ -2,29 +2,24 @@ import { render, screen } from "@testing-library/react";
 import Layout from "../components/Layout";
 import "@testing-library/jest-dom";
 import React from "react";
-import client, { Session } from "next-auth/client";
+import { client, useSession, signOut } from "next-auth/react";
 import "@testing-library/jest-dom";
 import { AccessProvider } from "faunadb";
-jest.mock("next-auth/client")
+jest.mock("next-auth/react");
 
 describe("Layout", () => {
-    it("renders layout", async () => {
+  it("renders layout", async () => {
+    const mockSession = {
+      expires: "1000000",
+      user: { email: "a" },
+    };
+    client.useSession.mockReturnValueOnce([mockSession, false]);
 
-        const mockSession = {
-            expires: "1000000",
-            user: {email: "a", }
-        };
-        (client.useSession).mockReturnValueOnce([mockSession, false]);
-        
-        render(<Layout/>);
+    render(<Layout />);
 
-        expect(screen.getByTestId("title")).toBeInTheDocument();
-        expect(screen.getByTestId("gallery")).toBeInTheDocument();
-        expect(screen.getByTestId("noticeboard")).toBeInTheDocument();
-        expect(screen.getByTestId("signin")).toBeInTheDocument();
-
-    });
-
-
-
+    expect(screen.getByTestId("title")).toBeInTheDocument();
+    expect(screen.getByTestId("gallery")).toBeInTheDocument();
+    expect(screen.getByTestId("noticeboard")).toBeInTheDocument();
+    expect(screen.getByTestId("signin")).toBeInTheDocument();
+  });
 });
