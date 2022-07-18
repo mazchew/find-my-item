@@ -33,7 +33,7 @@ const Card = ({
       </div>
       <div className="inline-flex items-center mt-2 w-full text-gray-700 leading-tight">
         <span className="font-semibold truncate">{title ?? ""}</span>
-        <span className="text-sm ml-auto truncate" data-testid="post_date">
+        <span className="text-sm ml-auto truncate">
           {moment(createdAt ?? "").fromNow()}
         </span>
         {/* <div className="inline-flex ml-auto items-center space-x-1">
