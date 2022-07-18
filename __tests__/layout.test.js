@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";
 import React from "react";
 import { useSession, signOut } from "next-auth/react";
 import "@testing-library/jest-dom";
+// jest.mock("next-auth/react");
 
 
 jest.mock("next-auth/react", () => {
