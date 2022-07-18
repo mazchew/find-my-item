@@ -79,8 +79,7 @@ const Layout = ({ children }) => {
             <div className="h-full px-4 flex justify-between items-center space-x-4">
               <Link href="/">
                 <a className="flex items-center space-x-1">
-                  <span className="text-xl font-semibold tracking-wide"
-                  data-testid="title">
+                  <span className="text-xl font-semibold tracking-wide">
                     FindMyItem
                   </span>
                 </a>
@@ -105,7 +104,6 @@ const Layout = ({ children }) => {
                     router.push("/noticeboard");
                   }}
                   className="hidden sm:block hover:bg-gray-200 transition px-3 py-1 rounded-md"
-                  data-testid="noticeboard"
                 >
                   NoticeBoard
                 </button>
@@ -164,8 +162,7 @@ const Layout = ({ children }) => {
                   </Menu>
                 ) : (
                   <Link href="/signin">
-                    <a className="ml-4 px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white transition"
-                    data-testid="signin">
+                    <a className="ml-4 px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white transition">
                       Sign In
                     </a>
                   </Link>

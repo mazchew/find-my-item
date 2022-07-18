@@ -28,8 +28,7 @@ describe("Layout", () => {
     render(<Layout />);
 
     expect(screen.getByText("FindMyItem")).toBeInTheDocument();
-    // expect(screen.getByText("Gallery")).toBeInTheDocument();
-    // expect(screen.getByText("Noticeboard")).toBeInTheDocument();
-    // expect(screen.getByText("Sign In")).toBeInTheDocument();
+    expect(screen.getByText("Gallery")).toBeInTheDocument();
+    expect(screen.getByText("NoticeBoard")).toBeInTheDocument();
   });
 });
