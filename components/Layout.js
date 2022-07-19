@@ -110,7 +110,7 @@ const Layout = ({ children }) => {
                 {isLoadingUser ? (
                   <div className="h-8 w-[75px] bg-gray-200 animate-pulse rounded-md" />
                 ) : user ? (
-                  <Menu as="div" className="relative z-50">
+                  <Menu as="div" className="relative z-50" data-test-id="authenticated">
                     <Menu.Button className="flex items-center space-x-px group">
                       <div className="shrink-0 flex items-center justify-center rounded-full overflow-hidden relative bg-gray-200 w-9 h-9">
                         <UserIcon className="text-gray-400 w-6 h-6" />
