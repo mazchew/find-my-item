@@ -13,12 +13,10 @@ export default NextAuth({
     verifyRequest: '/verifyemail',
   },
   secret: process.env.NEXTAUTH_SECRET,
-  session: {
-    maxAge: 10 * 60,
-  },
   adapter: PrismaAdapter(prisma),
   providers: [
     EmailProvider({
+      maxAge: 10 * 60,
       server: {
         host: process.env.EMAIL_SERVER_HOST,
         port: process.env.EMAIL_SERVER_PORT,
