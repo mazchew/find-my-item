@@ -63,6 +63,7 @@ const ContactForm = ({
                 type="textarea"
                 label="Message"
                 placeholder="Send a message to the poster!"
+                aria-label="message"
                 rows={4}
                 disabled={disabled}
               />

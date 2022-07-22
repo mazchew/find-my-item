@@ -12,13 +12,13 @@ describe("Item Form", () => {
   });
 
   it("onSubmit is called when all fields pass validation", async () => {
-    user.type(getTitle(), "Backpack");
-    user.type(getLocation(), "Central Library");
-    user.type(
+    await user.type(getTitle(), "Backpack");
+    await user.type(getLocation(), "Central Library");
+    await user.type(
       getDescription(),
       "Blue back pack found In central library with $500 inside."
     );
-    user.selectOptions(
+    await user.selectOptions(
       getDropdown(),
       within(getDropdown()).getByRole("option", { name: "Bag" })
     );
@@ -27,10 +27,11 @@ describe("Item Form", () => {
     await waitFor(() => {
       expect(onSubmit).toHaveBeenCalledWith({
         category: "BAG",
-        description: "B",
+        description:
+          "Blue back pack found In central library with $500 inside.",
         image: "",
-        location: "C",
-        title: "B",
+        location: "Central Library",
+        title: "Backpack",
       });
     });
     expect(onSubmit).toHaveBeenCalledTimes(1);
