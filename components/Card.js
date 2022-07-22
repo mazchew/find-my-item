@@ -16,7 +16,10 @@ const Card = ({
   <Link href={`/items/${id}`}>
     <a className="block w-full">
       <div className="relative flex flex-col flex-none">
-        <span className="bg-blue-100 text-blue-800 text-xs font-semibold z-10 absolute top-3 left-3 bg-blue-600 py-1 px-2 rounded-sm">
+        <span
+          className="bg-blue-100 text-blue-800 text-xs font-semibold z-10 absolute top-3 left-3 py-1 px-2 rounded-sm"
+          data-testid="category"
+        >
           {category.replace("_", " ")}
         </span>
         <div className="bg-gray-200 rounded-lg shadow overflow-hidden aspect-w-9 aspect-h-9">
@@ -27,12 +30,15 @@ const Card = ({
               layout="fill"
               objectFit="cover"
               className="hover:opacity-80 transition"
+              priority={true}
             />
           ) : null}
         </div>
       </div>
       <div className="inline-flex items-center mt-2 w-full text-gray-700 leading-tight">
-        <span className="font-semibold truncate">{title ?? ""}</span>
+        <span className="font-semibold truncate" data-testid="title">
+          {title ?? ""}
+        </span>
         <span className="text-sm ml-auto truncate" data-testid="post_date">
           {moment(createdAt ?? "").fromNow()}
         </span>
@@ -45,7 +51,7 @@ const Card = ({
       </div>
       <div className="inline-flex items-center space-x-1">
         <LocationMarkerIcon className="h-4 w-4" />
-        <div>{location}</div>
+        <div data-testid="location">{location}</div>
       </div>
     </a>
   </Link>

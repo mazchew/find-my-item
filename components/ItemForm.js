@@ -100,6 +100,7 @@ const ItemForm = ({
                 label="Title"
                 placeholder="Title of lost item"
                 disabled={disabled}
+                aria-label="title"
               />
               <Input
                 name="location"
@@ -107,6 +108,7 @@ const ItemForm = ({
                 label="Location"
                 placeholder="Location where the item was found"
                 disabled={disabled}
+                aria-label="location"
               />
               <Input
                 name="description"
@@ -115,12 +117,14 @@ const ItemForm = ({
                 placeholder="Description of the item found"
                 rows={4}
                 disabled={disabled}
+                aria-label="description"
               />
               <Input
                 name="category"
                 type="select"
                 label="Category"
                 disabled={disabled}
+                aria-label="category"
               />
             </div>
 
