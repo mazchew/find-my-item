@@ -12,15 +12,15 @@ import { redirect } from "next/dist/server/api-utils";
 const ItemSchema = Yup.object().shape({
   title: Yup.string()
     .trim()
-    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:;- ]*$/, "Invalid characters")
+    .matches(/^[\w\-\/,.!?'"$#@:; ]*$/, "Invalid characters")
     .required(),
   location: Yup.string()
     .trim()
-    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:;- ]*$/, "Invalid characters")
+    .matches(/^[\w\-\/,.!?'"$#@:; ]*$/, "Invalid characters")
     .required(),
   description: Yup.string()
     .trim()
-    .matches(/^[\.a-zA-Z0-9,!?'"/$#@:;- ]*$/, "Invalid characters")
+    .matches(/^[\w\-\/,.!?'"$#@:; ]*$/, "Invalid characters")
     .required(),
   category: Yup.string().required(),
 });
