@@ -36,10 +36,6 @@ export default async function handler(req, res) {
       const notice = await prisma.notice.delete({
         where: { id },
       });
-      if (notice.image) {
-        const path = notice.image.split(`${process.env.SUPABASE_BUCKET}/`)?.[1];
-        await supabase.storage.from(process.env.SUPABASE_BUCKET).remove([path]);
-      }
       res.status(200).json(notice);
     } catch (e) {
       res.status(500).json({ message: "Error" });
