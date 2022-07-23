@@ -40,7 +40,7 @@ describe("Item Form", () => {
   it("has 4 required fields", async () => {
     clickSubmit();
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.getByText("title is a required field")).toBeInTheDocument();
     });
   });
