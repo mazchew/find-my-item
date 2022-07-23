@@ -163,7 +163,7 @@ const MagicLinkModal = ({ show = false }) => {
           <MailOpenIcon className="flex-shrink-0 w-12 h-12 text-blue-500" />
           <h3 className="mt-2 text-2xl font-semibold">Confirm your email</h3>
           <p className="mt-4 text-lg">
-            We've emailed a magic link to you. Check your
+            We&apos;ve emailed a magic link to you. Check your
             inbox and click the link in the email to sign in.
           </p>
         </div>
