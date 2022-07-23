@@ -12,7 +12,7 @@ const ContactSchema = Yup.object().shape({
   message: Yup.string()
     .trim()
     .max(200)
-    .matches(/^[\w\-\/,.!?'"$#@:; ]*$/, "Invalid characters")
+    .matches(/^[\w\-\/\n,.!?'"$#@():; ]*$/, "Invalid characters")
     .required(),
 });
 
