@@ -8,7 +8,7 @@ const Input = ({ type = "", label = "", className = "", ...props }) => {
   const error = meta?.touched && meta?.error;
   let com;
 
-  if (type == "text" || type == "textarea") {
+  if (type == "text" || type == "textarea" || type == "email") {
     com = (
       <div className="flex-1">
         {type === "textarea" ? (
