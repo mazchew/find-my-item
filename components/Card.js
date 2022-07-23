@@ -49,9 +49,11 @@ const Card = ({
           </div>
         </div> */}
       </div>
-      <div className="inline-flex items-center space-x-1">
+      <div className="inline-flex items-center space-x-1 w-full">
         <LocationMarkerIcon className="h-4 w-4" />
-        <div data-testid="location">{location}</div>
+        <div data-testid="location" className="truncate">
+          {location}
+        </div>
       </div>
     </a>
   </Link>
