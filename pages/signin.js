@@ -137,12 +137,30 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/router';
-import { signIn, getSession, useSession } from 'next-auth/react';
+import { signIn, getSession } from 'next-auth/react';
 import { toast } from 'react-hot-toast';
 import { MailOpenIcon } from '@heroicons/react/outline';
 import Input from '@/components/Input';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
+
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -165,6 +183,8 @@ const MagicLinkModal = ({ show = false }) => {
           <p className="mt-4 text-lg">
             We&apos;ve emailed a magic link to you. Check your
             inbox and click the link in the email to sign in.
+            <br />
+            You may close this window.
           </p>
         </div>
       </div>
@@ -175,12 +195,6 @@ const MagicLinkModal = ({ show = false }) => {
 
 const SignIn = () => {
   const router = useRouter();
-
-  const { data: session, status } = useSession();
-
-  if (session) {
-    router.push("/");
-  }
 
   const [disabled, setDisabled] = useState(false);
   const [showModal, setShowModal] = useState(false);
