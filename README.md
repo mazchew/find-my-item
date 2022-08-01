@@ -93,12 +93,11 @@ In short, our platform helps people recover their lost items in the shortest pos
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up FindMyItem locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy of FindMyItem up and running follow these simple example steps:
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Install all dependencies
 * npm
   ```sh
   npm install npm@latest -g
@@ -115,7 +114,7 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-4. Enter your API in the `.env` file
+4. Enter your API keys in the `.env` file
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
