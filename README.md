@@ -21,16 +21,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">FindMyItem</h3>
 
   <p align="center">
     A better, easier lost and found application for NUS.
     <br />
-    <a href="https://drive.google.com/file/d/14Qdu-Um7gU2P27hS2lQuXooJPgemLMBW/view?usp=sharing"><strong>Explore the docs »</strong></a>
+    <a href="https://drive.google.com/file/d/14Qdu-Um7gU2P27hS2lQuXooJPgemLMBW/view?usp=sharing"><strong>Explore our README »</strong></a>
     <br />
     <br />
     <a href="https://find-my-item.vercel.app">View Demo</a>
